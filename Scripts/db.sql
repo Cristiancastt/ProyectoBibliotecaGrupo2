@@ -1,3 +1,10 @@
+-- Si ejecuto esta consulta sigue saliendo este mensaje
+-- Llamarle BibliotecaG2
+-- Mens. 911, Nivel 16, Estado 1, Línea 7
+-- La base de datos 'biblioteca' no existe. Asegúrese de que ha escrito el nombre correctamente.
+-- Un préstamo puede tener carnet, isbn y fecha de devolución??
+-- ¿qué significan los morosos?
+-- Como solo hay una biblioteca, no tiene sentido que libro tenga su identificador
 IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'biblioteca')
 BEGIN
     DROP DATABASE biblioteca;

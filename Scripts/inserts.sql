@@ -1,3 +1,6 @@
+-- Errores de ejecución en la Inserción
+-- Mens. 547, Nivel 16, Estado 0, Línea 31
+-- Instrucción INSERT en conflicto con la restricción FOREIGN KEY 'FK__libros__bibliote__2A4B4B5E'. El conflicto ha aparecido en la base de datos 'biblioteca', tabla 'dbo.biblioteca', column 'biblioteca_id'.
 DELETE FROM morosos;
 DELETE FROM prestamos;
 DELETE FROM lectores;
