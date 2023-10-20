@@ -1,3 +1,4 @@
+-- La solución de VStudio solo tiene 2 proyectos (ver enunciado) y si una clase define una Entidad no tiene sentido que el nombre esté en plural
 -- Errores de ejecución en la Inserción
 -- Mens. 547, Nivel 16, Estado 0, Línea 31
 -- Instrucción INSERT en conflicto con la restricción FOREIGN KEY 'FK__libros__bibliote__2A4B4B5E'. El conflicto ha aparecido en la base de datos 'biblioteca', tabla 'dbo.biblioteca', column 'biblioteca_id'.
