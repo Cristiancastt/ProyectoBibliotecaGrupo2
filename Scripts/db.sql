@@ -1,3 +1,4 @@
+USE master
 IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'bibliotecaG2')
 BEGIN
     DROP DATABASE bibliotecaG2;
