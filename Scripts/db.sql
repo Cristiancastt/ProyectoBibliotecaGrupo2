@@ -1,17 +1,11 @@
--- Si ejecuto esta consulta sigue saliendo este mensaje
--- Llamarle BibliotecaG2
--- Mens. 911, Nivel 16, Estado 1, Línea 7
--- La base de datos 'biblioteca' no existe. Asegúrese de que ha escrito el nombre correctamente.
--- Un préstamo puede tener carnet, isbn y fecha de devolución??
--- ¿qué significan los morosos?
--- Como solo hay una biblioteca, no tiene sentido que libro tenga su identificador
-IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'biblioteca')
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'bibliotecaG2')
 BEGIN
-    DROP DATABASE biblioteca;
+    DROP DATABASE bibliotecaG2;
 END
 
-CREATE DATABASE biblioteca;
-USE biblioteca;
+CREATE DATABASE bibliotecaG2;
+GO
+USE bibliotecaG2;
 
 CREATE TABLE biblioteca (
     biblioteca_id INT IDENTITY(1,1) PRIMARY KEY,
@@ -42,7 +36,6 @@ CREATE TABLE libros (
     cantidad_unidades INT NOT NULL,
     prestable BIT NOT NULL,
     biblioteca_id INT,
-    FOREIGN KEY (biblioteca_id) REFERENCES biblioteca (biblioteca_id)
 );
 
 
@@ -77,15 +70,6 @@ CREATE TABLE prestamos (
     isbn VARCHAR(13),
     fecha_prestamo DATE NOT NULL,
     fecha_devolucion DATE,
-    FOREIGN KEY (carnet) REFERENCES lectores (carnet),
-    FOREIGN KEY (isbn) REFERENCES libros (isbn)
-);
-
-
-CREATE TABLE morosos (
-    carnet INT,
-    isbn VARCHAR(13),
-    fecha_devolucion_esperada DATE,
     FOREIGN KEY (carnet) REFERENCES lectores (carnet),
     FOREIGN KEY (isbn) REFERENCES libros (isbn)
 );
