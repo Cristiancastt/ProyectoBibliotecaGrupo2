@@ -1,5 +1,4 @@
 use bibliotecaG2
-DELETE FROM morosos;
 DELETE FROM prestamos;
 DELETE FROM lectores;
 DELETE FROM libros_categorias;
