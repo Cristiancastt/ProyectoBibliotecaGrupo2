@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    internal class Program
+    internal class GestionBiblioteca
     {
         static void Main(string[] args)
         {
