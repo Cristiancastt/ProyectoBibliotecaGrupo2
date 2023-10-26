@@ -41,16 +41,16 @@ CREATE TABLE libros (
 
 
 CREATE TABLE libros_categorias (
-    isbn VARCHAR(13),
-    categoria_id INT,
+    isbn VARCHAR(13) not null,
+    categoria_id INT not null,
     FOREIGN KEY (isbn) REFERENCES libros (isbn),
     FOREIGN KEY (categoria_id) REFERENCES categorias (categoria_id)
 );
 
 
 CREATE TABLE libros_autores (
-    isbn VARCHAR(13),
-    autor_id INT,
+    isbn VARCHAR(13) not null,
+    autor_id INT not null,
     FOREIGN KEY (isbn) REFERENCES libros (isbn),
     FOREIGN KEY (autor_id) REFERENCES autores (autor_id)
 );
@@ -74,3 +74,10 @@ CREATE TABLE prestamos (
     FOREIGN KEY (carnet) REFERENCES lectores (carnet),
     FOREIGN KEY (isbn) REFERENCES libros (isbn)
 );
+
+ALTER TABLE libros_categorias
+ADD CONSTRAINT PK_LibrosCategorias PRIMARY KEY (isbn, categoria_id);
+
+
+ALTER TABLE libros_autores
+ADD CONSTRAINT PK_LibrosAutores PRIMARY KEY (isbn, autor_id);
