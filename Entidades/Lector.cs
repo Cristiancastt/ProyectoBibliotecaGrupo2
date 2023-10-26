@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaDatos
+namespace Entidades
 {
-    internal class Program
+    public  class Lector
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

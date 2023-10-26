@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    internal class Program
+    public class GestionBiblioteca
     {
-        static void Main(string[] args)
+        private Libro libro;
+
+        public GestionBiblioteca()
         {
+
         }
     }
 }
