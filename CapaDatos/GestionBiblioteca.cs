@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
@@ -14,8 +15,11 @@ namespace CapaDatos
        
             
             const string cadConexion = "Data Source = .; Initial Catalog = bibliotecaG2; Integrated Security = SSPI; MultipleActiveResultSets=true";
-        const string consCatONom = "Select isbn , titulo , editorial , sinopsis , caratula , [cantidad_unidades] , prestable , [biblioteca_id] where categoria...";
-            public ReadOnlyCollection<Libro> Libros(out string error) {
+        const string consCategoriaNombre = "Select isbn , titulo , editorial , sinopsis , caratula , [cantidad_unidades] , prestable , [biblioteca_id] from libros where categoria = @categoria and titulo = @titulo";
+        const string consCategoriaId = "Select isbn , titulo , editorial , sinopsis , caratula , [cantidad_unidades] , prestable , [biblioteca_id] from libros where categoria = @categoria and isbn = @isbn";
+        const string consNombre = "Select isbn , titulo , editorial , sinopsis , caratula , [cantidad_unidades] , prestable , [biblioteca_id] from libros where isbn = @isbn";
+
+        public ReadOnlyCollection<Libro> Libros(out string error , String consulta) {
             using (SqlConnection con = new SqlConnection(cadConexion))
             {
                 error = "";
@@ -23,7 +27,7 @@ namespace CapaDatos
                 try 
                 { 
                 con.Open();
-                    string consulta = "Select isbn , titulo , editorial , sinopsis , caratula , [cantidad_unidades] , prestable , [biblioteca_id] ";
+                   
                     SqlCommand recolectarLibros = new SqlCommand(consulta , con);
                     SqlDataReader datos = recolectarLibros.ExecuteReader();
                     if(!datos.HasRows) 
