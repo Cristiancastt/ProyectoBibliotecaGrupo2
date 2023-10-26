@@ -13,7 +13,7 @@ namespace CapaDatos
     public class GestionBiblioteca
     {
        
-            
+            //todo Hacer todas las consultas
             const string cadConexion = "Data Source = .; Initial Catalog = bibliotecaG2; Integrated Security = SSPI; MultipleActiveResultSets=true";
         const string consCategoriaNombre = "Select isbn , titulo , editorial , sinopsis , caratula , [cantidad_unidades] , prestable , [biblioteca_id] from libros where categoria = @categoria and titulo = @titulo";
         const string consCategoriaId = "Select isbn , titulo , editorial , sinopsis , caratula , [cantidad_unidades] , prestable , [biblioteca_id] from libros where categoria = @categoria and isbn = @isbn";
