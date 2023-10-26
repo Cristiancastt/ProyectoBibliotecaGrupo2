@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-<<<<<<< HEAD:CapaDatos/Lectores.cs
-    internal class GestionBiblioteca
-=======
-    public  class Lector
->>>>>>> 333eb1e7e0894a1dc108fb31229ee7cfeeea09ba:Entidades/Lector.cs
-    {
+        
+     public  class Lector
+     {
+        private int carnet;
+        private string nombre;
+        private string contraseña;
+        private string telefono;
+        private string email;
+
+        public Lector(int carnet, string nombre, string contraseña, string telefono, string email)
+        {
+            this.carnet = carnet;
+            this.nombre = nombre;
+            this.contraseña = contraseña;
+            this.telefono = telefono;
+            this.email = email;
+        }
     }
+
+    
+
 }
