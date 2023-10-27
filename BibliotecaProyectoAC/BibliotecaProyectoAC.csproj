@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB102A76-5BC0-4198-8750-8B65ECFC1B24}</ProjectGuid>
+    <ProjectGuid>{A578C64A-3DCA-4DB9-BCCE-67C8E2DD96CC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CapaPresentacion</RootNamespace>
-    <AssemblyName>CapaPresentacion</AssemblyName>
+    <RootNamespace>BibliotecaProyectoAC</RootNamespace>
+    <AssemblyName>BibliotecaProyectoAC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,14 +46,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AnadirLibros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AnadirLibros.Designer.cs">
+      <DependentUpon>AnadirLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearCategoria.Designer.cs">
+      <DependentUpon>CrearCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DevolverLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DevolverLibro.Designer.cs">
+      <DependentUpon>DevolverLibro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarLibro.Designer.cs">
+      <DependentUpon>EliminarLibro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaMorosos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaMorosos.Designer.cs">
+      <DependentUpon>ListaMorosos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrestarLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrestarLibro.Designer.cs">
+      <DependentUpon>PrestarLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AnadirLibros.resx">
+      <DependentUpon>AnadirLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearCategoria.resx">
+      <DependentUpon>CrearCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DevolverLibro.resx">
+      <DependentUpon>DevolverLibro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarLibro.resx">
+      <DependentUpon>EliminarLibro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaMorosos.resx">
+      <DependentUpon>ListaMorosos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrestarLibro.resx">
+      <DependentUpon>PrestarLibro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{b114d252-9c90-44cc-ae13-11dd767ffb9b}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
