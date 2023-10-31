@@ -36,7 +36,7 @@
             // BtnEliminarLibro
             // 
             this.BtnEliminarLibro.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.BtnEliminarLibro.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminarLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminarLibro.ForeColor = System.Drawing.Color.White;
             this.BtnEliminarLibro.Location = new System.Drawing.Point(316, 134);
             this.BtnEliminarLibro.Name = "BtnEliminarLibro";
@@ -44,22 +44,23 @@
             this.BtnEliminarLibro.TabIndex = 20;
             this.BtnEliminarLibro.Text = "Crear Categoría";
             this.BtnEliminarLibro.UseVisualStyleBackColor = false;
+            this.BtnEliminarLibro.Click += new System.EventHandler(this.BtnEliminarLibro_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(56, 86);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(703, 27);
+            this.textBox1.Size = new System.Drawing.Size(703, 26);
             this.textBox1.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(52, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 19);
+            this.label1.Size = new System.Drawing.Size(92, 20);
             this.label1.TabIndex = 18;
             this.label1.Text = "Descripción";
             // 
