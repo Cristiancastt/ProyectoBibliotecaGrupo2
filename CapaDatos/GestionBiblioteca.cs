@@ -116,5 +116,31 @@ namespace CapaDatos
             return true;
         }
 
+        public void borrarLibro(string isbn)
+        {
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+
+                    string eliminarLibro = "DELETE FROM libros WHERE isbn = @isbn";
+                    using (SqlCommand eliminarComando = new SqlCommand(eliminarLibro))
+                    {
+                        eliminarComando.Parameters.AddWithValue("@isbn", isbn);
+                        eliminarComando.ExecuteNonQuery();
+
+                    }
+
+                }
+                catch
+                {
+                    Console.WriteLine("Error. No se ha podido borra el libro.");
+                }
+            }
+
+        }
+
+
     }
 }
