@@ -19,6 +19,219 @@ namespace CapaDatos
         const string cadConexion = "Data Source = .; Initial Catalog = bibliotecaG2; Integrated Security = SSPI; MultipleActiveResultSets=true";
 
 
+        public bool AltaUsuario(
+            String nombre,
+            string contra,
+            string telefono,
+            string email,
+            out string errores
+        )
+        {
+            errores = null;
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string consulta =
+                        "INSERT INTO lectores (nombre, contraseña, telefono, email) VALUES (@nombre, @contra, @telefono, @email)";
+
+                    SqlCommand comando = new SqlCommand(consulta, con);
+                    comando.Parameters.AddWithValue("@nombre", nombre);
+                    comando.Parameters.AddWithValue("@contra", contra);
+                    comando.Parameters.AddWithValue("@telefono", telefono);
+                    comando.Parameters.AddWithValue("@email", email);
+
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    if (filasAfectadas == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        // La inserción no se realizó correctamente
+                        errores = "El registro no se completó correctamente.";
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    errores = e.Message;
+                    return false;
+                }
+            }
+        }
+
+        public bool prestar(
+            String carnet,
+            String isbn,
+            DateTime fechaPrestamo,
+            DateTime fechaDevolucion,
+            out string errores
+        )
+        {
+            errores = null;
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+
+                    string esPrestable = "SELECT prestable FROM libros WHERE isbn = @isbn";
+                    SqlCommand comandoEsPrestable = new SqlCommand(esPrestable, con);
+                    comandoEsPrestable.Parameters.AddWithValue("@isbn", isbn);
+                    var resultado = comandoEsPrestable.ExecuteScalar();
+                    if (resultado != null)
+                    {
+                        bool prestable = (bool)resultado;
+                        if (prestable)
+                        {
+                            // El libro es prestable (esPrestable == true)
+                            // Realiza las acciones necesarias para gestionar un libro prestable.
+                        }
+                        else
+                        {
+                            errores = "El libro no se puede prestar";
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        errores = "El ISBN no existe.";
+                        return false;
+                    }
+                    string consulta =
+                        "INSERT INTO prestamos (carnet, isbn, fecha_prestamo, fecha_devolucion) VALUES (@carnet, @isbn, @fechaprestamo, @fechadevolucion)";
+
+                    SqlCommand comando = new SqlCommand(consulta, con);
+                    comando.Parameters.AddWithValue("@isbn", isbn);
+                    comando.Parameters.AddWithValue("@carnet", carnet);
+                    comando.Parameters.AddWithValue("@fechaprestamo", fechaPrestamo);
+                    comando.Parameters.AddWithValue("@fechadevolucion", fechaDevolucion);
+
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    if (filasAfectadas == 1)
+                    {
+                        string consulta2 =
+                            "UPDATE libros SET cantidad_unidades = cantidad_unidades - 1 WHERE isbn = @isbn";
+                        SqlCommand comando2 = new SqlCommand(consulta2, con);
+                        comando2.Parameters.AddWithValue("@isbn", isbn);
+                        int filasAfectadas2 = comando2.ExecuteNonQuery();
+                        if (filasAfectadas2 == 1)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        // La inserción no se realizó correctamente
+                        errores = "El préstamo no se completó correctamente.";
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    errores = e.Message;
+                    return false;
+                }
+            }
+        }
+
+        public List<Libro> buscarLibroPorISBN(string isbn, out string errores)
+        {
+            List<Libro> librosEncontrados = new List<Libro>();
+            errores = null;
+
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+
+                    string consulta = "SELECT * FROM libros WHERE ISBN = @ISBN";
+
+                    SqlCommand comando = new SqlCommand(consulta, con);
+                    comando.Parameters.AddWithValue("@ISBN", isbn);
+
+                    SqlDataReader reader = comando.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Libro libro = new Libro();
+                        {
+                            libro.isbn = reader["isbn"].ToString();
+                            libro.titulo = reader["titulo"].ToString();
+                            libro.editorial = reader["editorial"].ToString();
+                            libro.sinopsis = reader["sinopsis"].ToString();
+                            libro.caratula = reader["caratula"].ToString();
+                            libro.cantidadUnidades = int.Parse(
+                                reader["cantidad_unidades"].ToString()
+                            );
+                            libro.prestable = Convert.ToBoolean(reader["prestable"]);
+                        }
+                        ;
+
+                        librosEncontrados.Add(libro);
+                    }
+
+                    return librosEncontrados;
+                }
+                catch (Exception e)
+                {
+                    errores = e.Message;
+                    return librosEncontrados;
+                }
+            }
+        }
+
+        public List<Lector> buscarLectorCarnet(string carnet, out string errores)
+        {
+            List<Lector> lectores = new List<Lector>();
+            errores = "";
+
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string consulta = "SELECT * FROM Lectores WHERE carnet = @carnet";
+                    SqlCommand comando = new SqlCommand(consulta, con);
+                    comando.Parameters.AddWithValue("@carnet", carnet);
+                    SqlDataReader reader = comando.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Lector lector = new Lector();
+                        {
+                            lector.carnet = reader.GetInt32(reader.GetOrdinal("carnet"));
+                            lector.nombre = reader.GetString(reader.GetOrdinal("nombre"));
+                            lector.contraseña = reader.GetString(reader.GetOrdinal("contraseña"));
+                            lector.telefono = reader.GetString(reader.GetOrdinal("telefono"));
+                            lector.email = reader.GetString(reader.GetOrdinal("email"));
+                        }
+                        ;
+                        lectores.Add(lector);
+                    }
+
+                    return lectores;
+                }
+                catch (Exception e)
+                {
+                    errores = e.Message;
+                }
+            }
+
+            return lectores;
+        }
+
+
+
+
+
 
         //public ReadOnlyCollection<Libro> LibrosDeCategoriaPorid (out string error, String consulta)
         //{
@@ -227,7 +440,7 @@ namespace CapaDatos
                     while (datos.Read())
                     {
                         Libro libro = new Libro();
-                        libro.isbn = datos.["isbn"].ToString();
+                        libro.isbn = datos["isbn"].ToString();
                         listaLibros.Add(libro);
                     }
                 }

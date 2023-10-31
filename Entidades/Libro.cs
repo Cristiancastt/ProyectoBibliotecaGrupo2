@@ -8,13 +8,13 @@ namespace Entidades
 {
     public class Libro
     {
-        private string isbn { get; set; }
-        private string titulo { get; set; }
-        private string editorial { get; set; }
-        private string sinopsis { get; set; }
-        private string caratula { get; set; }
-        private int cantidadUnidades { get; set; }
-        private byte prestable { get; set; }
+        public string isbn { get; set; }
+        public string titulo { get; set; }
+        public string editorial { get; set; }
+        public string sinopsis { get; set; }
+        public string caratula { get; set; }
+        public int cantidadUnidades { get; set; }
+        public bool prestable { get; set; }
 
 
         public Libro(string isbn, string titulo, string editorial, string sinopsis, string caratula, int cantidadUnidades, byte prestable)
