@@ -1,4 +1,4 @@
-﻿using Controller;
+﻿using CapaDatos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ namespace BibliotecaProyectoAC
     public partial class AnadirLibros : Form
     {
 
-        BibliotecaController controller = new BibliotecaController();
+        GestionBiblioteca controller = new GestionBiblioteca();
 
 
         public AnadirLibros()
@@ -47,7 +47,7 @@ namespace BibliotecaProyectoAC
             string unidades = TxtUnidades.Text;
             string editorial = TxtEditorial.Text;
             string autor = TxtAutores.Text;
-
+            string categoria = DataCategorias.SelectedRows.ToString();
             // Validaciones para comprobar que las cadenas no están vacías
 
             if (string.IsNullOrEmpty(isbn))
@@ -118,9 +118,9 @@ namespace BibliotecaProyectoAC
             }
             
             string errores;
-            if (controller.crearLibro(isbn, titulo, editorial, sinopsis, caratulaSeleccionada, cantidad, prestable, out errores))
+            if (controller.anadirLibro(isbn, titulo, editorial, sinopsis, caratulaSeleccionada, cantidad, prestable,autor ,categoria, out errores))
             {
-                MessageBox.Show("El préstamo se ha realizado con éxito.");
+                MessageBox.Show("El libro se ha añadido con éxito.");
             }
             else
             {
