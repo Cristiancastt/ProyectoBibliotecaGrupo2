@@ -16,5 +16,10 @@ namespace BibliotecaProyectoAC
         {
             InitializeComponent();
         }
+
+        private void BtnEliminarLibro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

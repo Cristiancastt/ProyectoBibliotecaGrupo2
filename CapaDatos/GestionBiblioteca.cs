@@ -204,5 +204,87 @@ namespace CapaDatos
                 return filasAfectadas > 0;
             }
         }
+
+        public List<Libro> ListPrestados(string id, out string error) // Devuelve una lista de libros que son prestados por el lector
+        {
+            List<Libro> listaLibros = new List<Libro>();
+            error = null;
+            if (String.IsNullOrWhiteSpace(id))
+            {
+                error = "Debes completar el campo id";
+                return listaLibros;
+            }
+
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string sql = "Select isbn from prestamos where carnet = @idLector and fecha_devolucion = null";
+                    SqlCommand cmd = new SqlCommand(sql);
+                    cmd.Parameters.AddWithValue("@idLector", id);
+                    SqlDataReader datos = cmd.ExecuteReader();
+                    while (datos.Read())
+                    {
+                        Libro libro = new Libro();
+                        libro.isbn = datos.["isbn"].ToString();
+                        listaLibros.Add(libro);
+                    }
+                }
+                catch (Exception e)
+                {
+                    error = e.Message; return null;
+                }
+            }
+            return listaLibros;
+        }
+
+        public Boolean Devoluciones(Libro libro, out string error)
+        {
+            error = null;
+            using (SqlConnection con = new SqlConnection (cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string sql = "update prestamos set fecha_prestamo = @fechaActual";
+                    SqlCommand cmd  = new SqlCommand(sql);
+                    cmd.Parameters.AddWithValue("@fechaActual", DateTime.Now);
+                }
+                catch (Exception e)
+                {
+                    error = "No se ha podido devolver el libre";
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public void borrarLibro(string isbn)
+        {
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+
+                    string eliminarLibro = "DELETE FROM libros WHERE isbn = @isbn";
+                    using (SqlCommand eliminarComando = new SqlCommand(eliminarLibro))
+                    {
+                        eliminarComando.Parameters.AddWithValue("@isbn", isbn);
+                        eliminarComando.ExecuteNonQuery();
+
+                    }
+
+                }
+                catch
+                {
+                    Console.WriteLine("Error. No se ha podido borra el libro.");
+                }
+            }
+
+        }
+
+
     }
 }

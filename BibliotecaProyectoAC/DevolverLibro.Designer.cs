@@ -1,4 +1,6 @@
-﻿namespace BibliotecaProyectoAC
+﻿using System;
+
+namespace BibliotecaProyectoAC
 {
     partial class DevolverLibro
     {
@@ -39,7 +41,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button1.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(692, 50);
             this.button1.Name = "button1";
@@ -61,26 +63,26 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(22, 51);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(664, 27);
+            this.textBox1.Size = new System.Drawing.Size(664, 26);
             this.textBox1.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(18, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 19);
+            this.label1.Size = new System.Drawing.Size(191, 20);
             this.label1.TabIndex = 24;
             this.label1.Text = "Identificate (Num. Carnet)";
             // 
             // BtnEliminarLibro
             // 
             this.BtnEliminarLibro.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.BtnEliminarLibro.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminarLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminarLibro.ForeColor = System.Drawing.Color.White;
             this.BtnEliminarLibro.Location = new System.Drawing.Point(330, 266);
             this.BtnEliminarLibro.Name = "BtnEliminarLibro";

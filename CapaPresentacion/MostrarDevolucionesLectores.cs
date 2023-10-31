@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BibliotecaProyectoAC
+namespace CapaPresentacion
 {
-    public partial class EliminarLibro : Form
+    public partial class MostrarDevolucionesLectores : Form
     {
-        public EliminarLibro()
+        public MostrarDevolucionesLectores()
         {
             InitializeComponent();
-        }
-
-        private void BtnEliminarLibro_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
