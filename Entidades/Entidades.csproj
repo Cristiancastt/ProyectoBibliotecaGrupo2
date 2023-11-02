@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionBiblioteca.cs" />
     <Compile Include="Lector.cs" />
     <Compile Include="Libro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
