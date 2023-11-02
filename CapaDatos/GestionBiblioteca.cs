@@ -487,14 +487,9 @@ namespace CapaDatos
 
         }
 
-<<<<<<< HEAD
+
        
 
-=======
-        public DataTable ObtenerCategoriasNombre()
-        {
-            throw new NotImplementedException();
+
         }
->>>>>>> 4007e616bf87f19be2f4375d7ef4e0f647f5c925
-    }
 }
