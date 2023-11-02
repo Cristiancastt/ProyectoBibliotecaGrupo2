@@ -152,7 +152,9 @@
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.label1);
             this.Name = "AltaLector";
-            this.Text = "AltaLector";
+            this.Text = "                                                                                 " +
+    "                                                                                " +
+    "                           ";
             this.ResumeLayout(false);
             this.PerformLayout();
 
