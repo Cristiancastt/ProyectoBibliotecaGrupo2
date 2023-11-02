@@ -186,5 +186,11 @@ namespace BibliotecaProyectoAC
             DataTable categoriasTable = controller.ObtenerCategoriasNombre(out errores);
             DataCategorias.DataSource = categoriasTable;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new CrearCategoria().Show();
+
+        }
     }
 }

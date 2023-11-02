@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaDatos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace BibliotecaProyectoAC
 {
     public partial class CrearCategoria : Form
     {
+        GestionBiblioteca controller = new GestionBiblioteca();
         public CrearCategoria()
         {
             InitializeComponent();
@@ -19,12 +21,19 @@ namespace BibliotecaProyectoAC
 
         private void BtnEliminarLibro_Click(object sender, EventArgs e)
         {
-
+            String errores;
+            if (!controller.AgregarCategoria(txtNombreCategoria.Text, out errores)) {
+                MessageBox.Show("Error", errores);
+                txtNombreCategoria.Clear();
+                
+            }
+            
         }
 
         private void CrearCategoria_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 }

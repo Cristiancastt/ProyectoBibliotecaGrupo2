@@ -244,7 +244,7 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    string consulta = "SELECT descripcion FROM categorías";
+                    string consulta = "SELECT descripcion FROM categorias";
                     SqlCommand recolectarCategorias = new SqlCommand(consulta, con);
                     SqlDataReader datos = recolectarCategorias.ExecuteReader();
 
@@ -500,9 +500,44 @@ namespace CapaDatos
 
         }
 
+        public bool AgregarCategoria(string nombreCategoria, out string error)
+        {
+            error = "";
+            if (String.IsNullOrEmpty(nombreCategoria)){
+                error = "No puedes introducir una categoría vacía";
+                return false;
+            }
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string consulta = "INSERT INTO categorias (descripcion) VALUES (@nombreCategoria)";
+                    SqlCommand cmd = new SqlCommand(consulta, con);
+                    cmd.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
 
-       
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
-
+                    if (rowsAffected > 0)
+                    {
+                        // La categoría se agregó con éxito
+                        return true;
+                    }
+                    else
+                    {
+                        error = "No se pudo agregar la categoría.";
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    return false;
+                }
+            }
         }
+
+
+
+    }
 }
