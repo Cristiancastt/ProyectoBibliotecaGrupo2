@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataMorosos = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataMorosos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DataMorosos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(79, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(635, 332);
-            this.dataGridView1.TabIndex = 0;
+            this.DataMorosos.AllowUserToAddRows = false;
+            this.DataMorosos.AllowUserToDeleteRows = false;
+            this.DataMorosos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataMorosos.Location = new System.Drawing.Point(79, 81);
+            this.DataMorosos.Name = "DataMorosos";
+            this.DataMorosos.ReadOnly = true;
+            this.DataMorosos.Size = new System.Drawing.Size(635, 332);
+            this.DataMorosos.TabIndex = 0;
             // 
             // label2
             // 
@@ -60,10 +60,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 450);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DataMorosos);
             this.Name = "ListaMorosos";
             this.Text = "ListaMorosos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ListaMorosos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataMorosos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -71,7 +72,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DataMorosos;
         private System.Windows.Forms.Label label2;
     }
 }

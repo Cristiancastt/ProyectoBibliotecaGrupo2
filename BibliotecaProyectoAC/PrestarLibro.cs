@@ -1,5 +1,4 @@
 ﻿using CapaDatos;
-using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,17 +18,6 @@ namespace BibliotecaProyectoAC
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             String carnet = txtCarnet.Text;
@@ -40,8 +28,7 @@ namespace BibliotecaProyectoAC
             }
             string errores;
             DataUsuarios.DataSource = null;
-            var lector = controlador.buscarLectorCarnet(carnet, out errores);
-            DataUsuarios.DataSource = lector;
+            DataUsuarios.DataSource = controlador.buscarLectorCarnet(carnet, out errores);
             if (string.IsNullOrEmpty(errores))
             {
 
@@ -51,11 +38,6 @@ namespace BibliotecaProyectoAC
                 MessageBox.Show("Error: " + errores);
             }
 
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -139,41 +121,6 @@ namespace BibliotecaProyectoAC
         private void button2_Click(object sender, EventArgs e)
         {
             new AltaLector().Show();
-        }
-
-        private void TxtISBN_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DataLibro_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void DataUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void TxtPrestamo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtDevolucion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

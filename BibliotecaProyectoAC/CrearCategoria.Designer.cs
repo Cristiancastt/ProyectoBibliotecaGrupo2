@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnCrearCategoria = new System.Windows.Forms.Button();
-            this.txtNombreCategoria = new System.Windows.Forms.TextBox();
+            this.TxtNombreCategoria = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -46,13 +46,13 @@
             this.BtnCrearCategoria.UseVisualStyleBackColor = false;
             this.BtnCrearCategoria.Click += new System.EventHandler(this.BtnEliminarLibro_Click);
             // 
-            // txtNombreCategoria
+            // TxtNombreCategoria
             // 
-            this.txtNombreCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCategoria.Location = new System.Drawing.Point(56, 86);
-            this.txtNombreCategoria.Name = "txtNombreCategoria";
-            this.txtNombreCategoria.Size = new System.Drawing.Size(703, 26);
-            this.txtNombreCategoria.TabIndex = 19;
+            this.TxtNombreCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNombreCategoria.Location = new System.Drawing.Point(56, 86);
+            this.TxtNombreCategoria.Name = "TxtNombreCategoria";
+            this.TxtNombreCategoria.Size = new System.Drawing.Size(703, 26);
+            this.TxtNombreCategoria.TabIndex = 19;
             // 
             // label1
             // 
@@ -70,7 +70,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 223);
             this.Controls.Add(this.BtnCrearCategoria);
-            this.Controls.Add(this.txtNombreCategoria);
+            this.Controls.Add(this.TxtNombreCategoria);
             this.Controls.Add(this.label1);
             this.Name = "CrearCategoria";
             this.Text = "CrearCategoria";
@@ -83,7 +83,7 @@
         #endregion
 
         private System.Windows.Forms.Button BtnCrearCategoria;
-        private System.Windows.Forms.TextBox txtNombreCategoria;
+        private System.Windows.Forms.TextBox TxtNombreCategoria;
         private System.Windows.Forms.Label label1;
     }
 }

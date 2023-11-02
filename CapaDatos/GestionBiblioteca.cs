@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,6 +19,54 @@ namespace CapaDatos
 
         //todo Hacer todas las consultas
         const string cadConexion = "Data Source = .; Initial Catalog = bibliotecaG2; Integrated Security = SSPI; MultipleActiveResultSets=true";
+
+
+
+        public List<Lector> Morosos(out string errores)
+        {
+            List<Lector> morosos = new List<Lector>();
+            errores = null;
+
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string consulta = "SELECT * FROM lectores l INNER JOIN prestamos p ON l.carnet = p.carnet WHERE p.fecha_devolucion < GETDATE()";
+
+                    SqlCommand comando = new SqlCommand(consulta, con);
+                    SqlDataReader reader = comando.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Lector lector = new Lector
+                        {
+                            carnet = (int)reader["carnet"],
+                            email = (string)reader["email"],
+                            telefono = (string)reader["telefono"],
+                            nombre = (string)reader["nombre"],
+                            contraseña = (string)reader["contraseña"]
+                        };
+
+                        morosos.Add(lector);
+                    }
+
+                    return morosos;
+                }
+                catch (Exception e)
+                {
+                    errores = e.Message;
+                    return morosos;
+                }
+            }
+        }
+
+
+
+
+
+
+
 
 
         public bool AltaUsuario(
@@ -214,8 +263,9 @@ namespace CapaDatos
                             lector.telefono = reader.GetString(reader.GetOrdinal("telefono"));
                             lector.email = reader.GetString(reader.GetOrdinal("email"));
                         }
-                        ;
+                        
                         lectores.Add(lector);
+                        
                     }
 
                     return lectores;
@@ -370,7 +420,7 @@ namespace CapaDatos
             {
                 con.Open();
 
-                string consultaAutor = "IF NOT EXISTS (SELECT 1 FROM autores WHERE nombre = @autor) INSERT INTO autores (nombre) VALUES (@autor)";
+                string consultaAutor = "IF NOT EXISTS (SELECT 1< FROM autores WHERE nombre = @autor) INSERT INTO autores (nombre) VALUES (@autor)";
                 SqlCommand insertarAutor = new SqlCommand(consultaAutor, con);
                 insertarAutor.Parameters.AddWithValue("@autor", autor);
                 insertarAutor.ExecuteNonQuery();
@@ -502,7 +552,7 @@ namespace CapaDatos
             }
 
         }
-<<<<<<< HEAD
+
 
         public bool AgregarCategoria(string nombreCategoria, out string error)
         {
@@ -519,7 +569,6 @@ namespace CapaDatos
                     string consulta = "INSERT INTO categorias (descripcion) VALUES (@nombreCategoria)";
                     SqlCommand cmd = new SqlCommand(consulta, con);
                     cmd.Parameters.AddWithValue("@nombreCategoria", nombreCategoria);
-
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
@@ -543,7 +592,5 @@ namespace CapaDatos
 
 
 
-=======
->>>>>>> b273e834905377ed0d8989d111fab9b79ac05164
     }
 }

@@ -63,6 +63,7 @@
             this.button1.TabIndex = 25;
             this.button1.Text = "Eliminar Libro";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -75,6 +76,7 @@
             this.button3.TabIndex = 26;
             this.button3.Text = "Prestar Libro";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -87,6 +89,7 @@
             this.button4.TabIndex = 27;
             this.button4.Text = "Devolver Libro";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -99,6 +102,7 @@
             this.button5.TabIndex = 28;
             this.button5.Text = "Lista Morosos";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -111,6 +115,7 @@
             this.button6.TabIndex = 29;
             this.button6.Text = "Alta Lectores";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label1
             // 
@@ -141,6 +146,7 @@
             this.label3.Size = new System.Drawing.Size(128, 33);
             this.label3.TabIndex = 32;
             this.label3.Text = "Lectores";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Menu
             // 

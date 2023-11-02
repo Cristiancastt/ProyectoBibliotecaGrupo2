@@ -20,10 +20,8 @@ namespace Entidades
 
         }
 
-
-        public Lector(int carnet, string nombre, string contraseña, string telefono, string email)
+        public Lector(string nombre, string contraseña, string telefono, string email)
         {
-            this.carnet = carnet;
             this.nombre = nombre;
             this.contraseña = contraseña;
             this.telefono = telefono;
