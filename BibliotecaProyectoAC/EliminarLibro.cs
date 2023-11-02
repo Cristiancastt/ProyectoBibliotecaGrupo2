@@ -21,5 +21,10 @@ namespace BibliotecaProyectoAC
         {
 
         }
+
+        private void EliminarLibro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

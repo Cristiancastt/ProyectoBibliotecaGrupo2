@@ -473,8 +473,21 @@ namespace CapaDatos
             return true;
         }
 
-        public void borrarLibro(string isbn)
+        public void borrarLibro(string isbn, out String error)
         {
+
+            if (String.IsNullOrEmpty(isbn))
+            {
+                error = "El isbn no puede estar vacío";
+            }
+
+            Libro buscar = LibroPorIsbn(isbn, out error);
+            if (buscar == null)
+            {
+                error = "El libro no exise";
+            }
+
+
             using (SqlConnection con = new SqlConnection(cadConexion))
             {
                 try
@@ -492,7 +505,7 @@ namespace CapaDatos
                 }
                 catch
                 {
-                    Console.WriteLine("Error. No se ha podido borra el libro.");
+                    error = "Error. No se ha podido borra el libro.";
                 }
             }
 
