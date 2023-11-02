@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -498,6 +499,9 @@ namespace CapaDatos
 
         }
 
-
+        public DataTable ObtenerCategoriasNombre()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
