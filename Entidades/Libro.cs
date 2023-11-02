@@ -17,7 +17,7 @@ namespace Entidades
         public bool prestable { get; set; }
 
 
-        public Libro(string isbn, string titulo, string editorial, string sinopsis, string caratula, int cantidadUnidades, byte prestable)
+        public Libro(string isbn, string titulo, string editorial, string sinopsis, string caratula, int cantidadUnidades, bool prestable)
         {
             this.isbn = isbn;
             this.titulo = titulo;

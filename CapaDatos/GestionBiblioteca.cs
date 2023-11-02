@@ -299,7 +299,7 @@ namespace CapaDatos
                         string sinopsis = datos["sinopsis"].ToString();
                         string caratula = datos["caratula"].ToString();
                         int cantidadUnidades = (int)datos["cantidad_unidades"];
-                        byte prestable = (byte)datos["prestable"];
+                        bool prestable = (bool)datos["prestable"];
                         lib = new Libro(isbn , titulo,editorial,sinopsis,caratula,cantidadUnidades,prestable );
                         if (!String.IsNullOrEmpty(error))
                         {

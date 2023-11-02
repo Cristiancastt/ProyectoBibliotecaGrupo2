@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    internal static class Program
+    public class Program
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.

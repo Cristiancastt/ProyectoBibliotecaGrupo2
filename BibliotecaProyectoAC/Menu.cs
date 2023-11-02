@@ -21,5 +21,10 @@ namespace BibliotecaProyectoAC
         {
             new AnadirLibros().Show();
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
