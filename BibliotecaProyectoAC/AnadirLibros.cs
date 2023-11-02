@@ -182,7 +182,8 @@ namespace BibliotecaProyectoAC
         private void AnadirLibros_Load_1(object sender, EventArgs e)
         {
             DataCategorias.DataSource = null;
-            DataTable categoriasTable = controller.ObtenerCategoriasNombre();
+            string errores;
+            DataTable categoriasTable = controller.ObtenerCategoriasNombre(out errores);
             DataCategorias.DataSource = categoriasTable;
         }
     }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -233,49 +234,37 @@ namespace CapaDatos
 
 
 
-        //public ReadOnlyCollection<Libro> LibrosDeCategoriaPorid (out string error, String consulta)
-        //{
-        //    using (SqlConnection con = new SqlConnection(cadConexion))
-        //    {
-        //        error = "";
-        //        List<Libro> listaLibros = new List<Libro>();
-        //        try
-        //        {
-        //            con.Open();
-        //            const string consNombre = "Select * from categorias where isbn = @isbn";
-        //            SqlCommand recolectarLibros = new SqlCommand(consulta, con);
-        //            SqlDataReader datos = recolectarLibros.ExecuteReader();
-        //            if (!datos.HasRows)
-        //            {
-        //                error = "No hay libros.";
-        //                return listaLibros.AsReadOnly();
-        //            }
-        //            while (datos.Read())
-        //            {
-        //                string isbn = datos["isbn"].ToString();
-        //                string titulo = datos["titulo"].ToString();
-        //                string editorial = datos["editorial"].ToString();
-        //                string sinopsis = datos["sinopsis"].ToString();
-        //                string caratula = datos["caratula"].ToString();
-        //                int cantidadUnidades = (int)datos["cantidad_unidades"];
-        //                bool prestable = (bool)datos["prestable"];
-        //                int bibliotecaId = (int)datos["biblioteca_id"];
-        //                listaLibros.Add(new Libro(isbn, titulo, editorial, sinopsis, caratula, cantidadUnidades, prestable));
-        //                if (!String.IsNullOrEmpty(error))
-        //                {
-        //                    return listaLibros.AsReadOnly();
-        //                }
-        //            }
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            error = e.Message;
-        //            return null;
-        //        }
-        //        return listaLibros.AsReadOnly();
-        //    }
+        public DataTable ObtenerCategoriasNombre(out string error)
+        {
+            DataTable categoriasTable = new DataTable();
+            error = "";
 
-        //}
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string consulta = "SELECT descripcion FROM categorías";
+                    SqlCommand recolectarCategorias = new SqlCommand(consulta, con);
+                    SqlDataReader datos = recolectarCategorias.ExecuteReader();
+
+                    if (!datos.HasRows)
+                    {
+                        error = "No hay categorías.";
+                        return categoriasTable;
+                    }
+
+                    categoriasTable.Load(datos); // Cargar los datos en el DataTable
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                }
+
+                return categoriasTable;
+            }
+        }
+
 
 
         public Libro LibroPorIsbn(String isbnConsulta, out String error)
@@ -498,6 +487,7 @@ namespace CapaDatos
 
         }
 
+       
 
     }
 }
