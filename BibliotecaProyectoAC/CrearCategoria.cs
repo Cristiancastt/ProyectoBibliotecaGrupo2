@@ -47,5 +47,9 @@ namespace BibliotecaProyectoAC
 
         }
 
+        private void TxtNombreCategoria_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

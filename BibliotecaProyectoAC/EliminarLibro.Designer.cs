@@ -37,10 +37,11 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(60, 84);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(936, 30);
             this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -52,6 +53,7 @@
             this.label1.Size = new System.Drawing.Size(58, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "ISBN";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // BtnEliminarLibro
             // 
@@ -59,7 +61,7 @@
             this.BtnEliminarLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminarLibro.ForeColor = System.Drawing.Color.White;
             this.BtnEliminarLibro.Location = new System.Drawing.Point(417, 143);
-            this.BtnEliminarLibro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnEliminarLibro.Margin = new System.Windows.Forms.Padding(4);
             this.BtnEliminarLibro.Name = "BtnEliminarLibro";
             this.BtnEliminarLibro.Size = new System.Drawing.Size(197, 74);
             this.BtnEliminarLibro.TabIndex = 17;
@@ -75,7 +77,7 @@
             this.Controls.Add(this.BtnEliminarLibro);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EliminarLibro";
             this.Text = "EliminarLibro";
             this.Load += new System.EventHandler(this.EliminarLibro_Load);
