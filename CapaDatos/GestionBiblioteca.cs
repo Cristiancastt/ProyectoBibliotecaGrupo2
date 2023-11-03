@@ -420,7 +420,7 @@ namespace CapaDatos
             {
                 con.Open();
 
-                string consultaAutor = "IF NOT EXISTS (SELECT 1< FROM autores WHERE nombre = @autor) INSERT INTO autores (nombre) VALUES (@autor)";
+                string consultaAutor = "IF NOT EXISTS (SELECT 1 FROM autores WHERE nombre = @autor) INSERT INTO autores (nombre) VALUES (@autor)";
                 SqlCommand insertarAutor = new SqlCommand(consultaAutor, con);
                 insertarAutor.Parameters.AddWithValue("@autor", autor);
                 insertarAutor.ExecuteNonQuery();
