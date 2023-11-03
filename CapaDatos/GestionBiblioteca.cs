@@ -11,6 +11,7 @@ using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CapaDatos
 {
@@ -315,7 +316,36 @@ namespace CapaDatos
             }
         }
 
+        public DataTable ObtenerAutoresNombre(out string error)
+        {
+            DataTable autoresTable = new DataTable();
+            error = "";
 
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string consulta = "SELECT nombre FROM autores";
+                    SqlCommand recolectarAutores = new SqlCommand(consulta, con);
+                    SqlDataReader datos = recolectarAutores.ExecuteReader();
+
+                    if (!datos.HasRows)
+                    {
+                        error = "No hay autores.";
+                        return autoresTable;
+                    }
+
+                    autoresTable.Load(datos); // Cargar los datos en el DataTable
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                }
+
+                return autoresTable;
+            }
+        }
 
         public Libro LibroPorIsbn(String isbnConsulta, out String error)
         {
@@ -361,7 +391,7 @@ namespace CapaDatos
 
         }
 
-        public bool anadirLibro(String isbn, String titulo, String editorial, String sinopsis,String caratulaSeleccionada, int cantidad, byte prestable, String autor , String categoria , out String errores)
+        public bool anadirLibro(String isbn, String titulo, String editorial, String sinopsis,String caratulaSeleccionada, int cantidad, byte prestable, DataGridViewSelectedRowCollection autores , DataGridViewSelectedRowCollection categorias , out String errores)
         {
             if (String.IsNullOrEmpty(isbn))
             {
@@ -398,12 +428,12 @@ namespace CapaDatos
                 errores = "El prestable no puede estar vacío";
                 return false;
             }
-            if (!String.IsNullOrEmpty(autor.ToString()))
+            if (!String.IsNullOrEmpty(autores.ToString()))
             {
                 errores = "El autor no puede estar vacío";
                 return false;
             }
-            if (!String.IsNullOrEmpty(categoria.ToString()))
+            if (!String.IsNullOrEmpty(categorias.ToString()))
             {
                 errores = "La categoria no puede estar vacía";
                 return false;
@@ -419,22 +449,28 @@ namespace CapaDatos
             using (SqlConnection con = new SqlConnection(cadConexion))
             {
                 con.Open();
-
-                string consultaAutor = "IF NOT EXISTS (SELECT 1 FROM autores WHERE nombre = @autor) INSERT INTO autores (nombre) VALUES (@autor)";
-                SqlCommand insertarAutor = new SqlCommand(consultaAutor, con);
-                insertarAutor.Parameters.AddWithValue("@autor", autor);
-                insertarAutor.ExecuteNonQuery();
+                foreach (var aut in autores)
+                {
+                    string consultaAutor = "INSERT INTO autores (nombre) VALUES (@autor)";
+                    SqlCommand insertarAutor = new SqlCommand(consultaAutor, con);
+                    insertarAutor.Parameters.AddWithValue("@autor", aut.ToString());
+                    insertarAutor.ExecuteNonQuery();
+                }
+           
             }
 
             // Insertar la categoría si no existe
             using (SqlConnection con = new SqlConnection(cadConexion))
             {
                 con.Open();
+                foreach (String cat in categorias)
+                {
+                    string consultaCategoria = "INSERT INTO categorias (descripcion) VALUES (@categoria)";
+                    SqlCommand insertarCategoria = new SqlCommand(consultaCategoria, con);
+                    insertarCategoria.Parameters.AddWithValue("@categoria", cat.ToString());
+                    insertarCategoria.ExecuteNonQuery();
+                }
 
-                string consultaCategoria = "IF NOT EXISTS (SELECT 1 FROM categorias WHERE descripcion = @categoria) INSERT INTO categorias (descripcion) VALUES (@categoria)";
-                SqlCommand insertarCategoria = new SqlCommand(consultaCategoria, con);
-                insertarCategoria.Parameters.AddWithValue("@categoria", categoria);
-                insertarCategoria.ExecuteNonQuery();
             }
 
             // Insertar el libro

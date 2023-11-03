@@ -46,8 +46,8 @@ namespace BibliotecaProyectoAC
             string sinopsis = TxtSinopsis.Text;
             string unidades = TxtUnidades.Text;
             string editorial = TxtEditorial.Text;
-            string autor = TxtAutores.Text;
-            string categoria = DataCategorias.SelectedRows.ToString();
+            DataGridViewSelectedRowCollection autor = dataAutores.SelectedRows;
+            DataGridViewSelectedRowCollection categoria = DataCategorias.SelectedRows;
             // Validaciones para comprobar que las cadenas no están vacías
 
             if (string.IsNullOrEmpty(isbn))
@@ -80,11 +80,6 @@ namespace BibliotecaProyectoAC
                 return;
             }
 
-            if (string.IsNullOrEmpty(autor))
-            {
-                MessageBox.Show("El campo Autor no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             byte prestable;
             if (PrestableSi.Checked)
             {
@@ -185,11 +180,20 @@ namespace BibliotecaProyectoAC
             string errores;
             DataTable categoriasTable = controller.ObtenerCategoriasNombre(out errores);
             DataCategorias.DataSource = categoriasTable;
+
+
+            DataTable autoresTable = controller.ObtenerAutoresNombre(out errores);
+            dataAutores.DataSource = autoresTable;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             new CrearCategoria().Show();
+
+        }
+
+        private void BtnAnadirAutor_Click(object sender, EventArgs e)
+        {
 
         }
     }

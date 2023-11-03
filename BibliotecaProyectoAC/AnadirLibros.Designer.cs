@@ -53,8 +53,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.PrestableSi = new System.Windows.Forms.RadioButton();
             this.PrestableNo = new System.Windows.Forms.RadioButton();
+            this.dataAutores = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DataCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataAutores)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtISBN
@@ -210,6 +212,7 @@
             this.BtnAnadirAutor.TabIndex = 19;
             this.BtnAnadirAutor.Text = "Añadir Autor";
             this.BtnAnadirAutor.UseVisualStyleBackColor = false;
+            this.BtnAnadirAutor.Click += new System.EventHandler(this.BtnAnadirAutor_Click);
             // 
             // BtnBuscarAutor
             // 
@@ -307,11 +310,20 @@
             this.PrestableNo.UseVisualStyleBackColor = true;
             this.PrestableNo.CheckedChanged += new System.EventHandler(this.PrestableNo_CheckedChanged);
             // 
+            // dataAutores
+            // 
+            this.dataAutores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataAutores.Location = new System.Drawing.Point(628, 162);
+            this.dataAutores.Name = "dataAutores";
+            this.dataAutores.Size = new System.Drawing.Size(240, 150);
+            this.dataAutores.TabIndex = 28;
+            // 
             // AnadirLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 519);
+            this.Controls.Add(this.dataAutores);
             this.Controls.Add(this.PrestableNo);
             this.Controls.Add(this.PrestableSi);
             this.Controls.Add(this.label9);
@@ -341,6 +353,7 @@
             this.Load += new System.EventHandler(this.AnadirLibros_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DataCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataAutores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,5 +386,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton PrestableSi;
         private System.Windows.Forms.RadioButton PrestableNo;
+        private System.Windows.Forms.DataGridView dataAutores;
     }
 }
