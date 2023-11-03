@@ -6,26 +6,25 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-        
-     public  class Lector
+
+    public class Lector
      {
-        public int carnet;
-        public string nombre;
-        public string contraseña;
-        public string telefono;
-        public string email;
+        public int Carnet { get; set; }
+        public string Nombre { get; set; }
+        public string Contraseña { get; set; }
+        public string Telefono { get; set; }
+        public string Email { get; set; }
 
         public Lector()
         {
-
         }
 
         public Lector(string nombre, string contraseña, string telefono, string email)
         {
-            this.nombre = nombre;
-            this.contraseña = contraseña;
-            this.telefono = telefono;
-            this.email = email;
+            Nombre = nombre;
+            Contraseña = contraseña;
+            Telefono = telefono;
+            Email = email;
         }
     }
 

@@ -41,11 +41,11 @@ namespace CapaDatos
                     {
                         Lector lector = new Lector
                         {
-                            carnet = (int)reader["carnet"],
-                            email = (string)reader["email"],
-                            telefono = (string)reader["telefono"],
-                            nombre = (string)reader["nombre"],
-                            contraseña = (string)reader["contraseña"]
+                            Carnet = (int)reader["carnet"],
+                            Email = (string)reader["email"],
+                            Telefono = (string)reader["telefono"],
+                            Nombre = (string)reader["nombre"],
+                            Contraseña = (string)reader["contraseña"]
                         };
 
                         morosos.Add(lector);
@@ -257,11 +257,11 @@ namespace CapaDatos
                     {
                         Lector lector = new Lector();
                         {
-                            lector.carnet = reader.GetInt32(reader.GetOrdinal("carnet"));
-                            lector.nombre = reader.GetString(reader.GetOrdinal("nombre"));
-                            lector.contraseña = reader.GetString(reader.GetOrdinal("contraseña"));
-                            lector.telefono = reader.GetString(reader.GetOrdinal("telefono"));
-                            lector.email = reader.GetString(reader.GetOrdinal("email"));
+                            lector.Carnet = reader.GetInt32(reader.GetOrdinal("carnet"));
+                            lector.Nombre = reader.GetString(reader.GetOrdinal("nombre"));
+                            lector.Contraseña = reader.GetString(reader.GetOrdinal("contraseña"));
+                            lector.Telefono = reader.GetString(reader.GetOrdinal("telefono"));
+                            lector.Email = reader.GetString(reader.GetOrdinal("email"));
                         }
                         
                         lectores.Add(lector);
