@@ -508,8 +508,8 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    string sql = "Select isbn from prestamos where carnet = @idLector and fecha_devolucion = null";
-                    SqlCommand cmd = new SqlCommand(sql);
+                    string sql = "Select isbn from prestamos where carnet = @idLector;";
+                    SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.Parameters.AddWithValue("@idLector", id);
                     SqlDataReader datos = cmd.ExecuteReader();
                     while (datos.Read())
@@ -535,9 +535,21 @@ namespace CapaDatos
                 try
                 {
                     con.Open();
-                    string sql = "update prestamos set fecha_prestamo = @fechaActual";
-                    SqlCommand cmd  = new SqlCommand(sql);
-                    cmd.Parameters.AddWithValue("@fechaActual", DateTime.Now);
+                    string sql = "delete from prestamos where isbn = @isbnPrestado";
+                    SqlCommand cmd  = new SqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@isbnPrestado", libro.isbn);
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    if (filasAfectadas > 0)
+                    {
+                        // Se eliminaron filas correctamente
+                        return true;
+                    }
+                    else
+                    {
+                        error = "No se encontraron registros para devolver el libro.";
+                        return false;
+                    }
                 }
                 catch (Exception e)
                 {

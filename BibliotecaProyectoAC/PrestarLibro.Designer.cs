@@ -48,44 +48,44 @@
             // 
             // txtCarnet
             // 
-            this.txtCarnet.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCarnet.Location = new System.Drawing.Point(32, 63);
             this.txtCarnet.Name = "txtCarnet";
-            this.txtCarnet.Size = new System.Drawing.Size(484, 27);
+            this.txtCarnet.Size = new System.Drawing.Size(484, 26);
             this.txtCarnet.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(28, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 19);
+            this.label1.Size = new System.Drawing.Size(191, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Identificate (Num. Carnet)";
             // 
             // TxtISBN
             // 
-            this.TxtISBN.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtISBN.Location = new System.Drawing.Point(666, 65);
             this.TxtISBN.Name = "TxtISBN";
-            this.TxtISBN.Size = new System.Drawing.Size(455, 27);
+            this.TxtISBN.Size = new System.Drawing.Size(455, 26);
             this.TxtISBN.TabIndex = 9;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(662, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 19);
+            this.label2.Size = new System.Drawing.Size(150, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Buscar Libro (ISBN)";
             // 
             // BtnBuscarLibro
             // 
             this.BtnBuscarLibro.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.BtnBuscarLibro.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscarLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBuscarLibro.ForeColor = System.Drawing.Color.White;
             this.BtnBuscarLibro.Location = new System.Drawing.Point(1127, 62);
             this.BtnBuscarLibro.Name = "BtnBuscarLibro";
@@ -120,7 +120,7 @@
             // BtnBuscar
             // 
             this.BtnBuscar.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.BtnBuscar.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBuscar.ForeColor = System.Drawing.Color.White;
             this.BtnBuscar.Location = new System.Drawing.Point(522, 62);
             this.BtnBuscar.Name = "BtnBuscar";
@@ -133,7 +133,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.SteelBlue;
-            this.button2.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(241, 27);
             this.button2.Name = "button2";
@@ -145,44 +145,44 @@
             // 
             // TxtPrestamo
             // 
-            this.TxtPrestamo.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPrestamo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPrestamo.Location = new System.Drawing.Point(32, 319);
             this.TxtPrestamo.Name = "TxtPrestamo";
-            this.TxtPrestamo.Size = new System.Drawing.Size(250, 27);
+            this.TxtPrestamo.Size = new System.Drawing.Size(250, 26);
             this.TxtPrestamo.TabIndex = 25;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(28, 287);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(254, 19);
+            this.label3.Size = new System.Drawing.Size(257, 20);
             this.label3.TabIndex = 24;
             this.label3.Text = "Fecha Prestamo (Por Defecto Hoy)";
             // 
             // TxtDevolucion
             // 
-            this.TxtDevolucion.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDevolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDevolucion.Location = new System.Drawing.Point(32, 422);
             this.TxtDevolucion.Name = "TxtDevolucion";
-            this.TxtDevolucion.Size = new System.Drawing.Size(250, 27);
+            this.TxtDevolucion.Size = new System.Drawing.Size(250, 26);
             this.TxtDevolucion.TabIndex = 27;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(28, 390);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(449, 19);
+            this.label4.Size = new System.Drawing.Size(450, 20);
             this.label4.TabIndex = 26;
             this.label4.Text = "Fecha Devolución (Por Defecto 15 Dias Más a la de Prestamo)";
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button3.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(1053, 406);
             this.button3.Name = "button3";
