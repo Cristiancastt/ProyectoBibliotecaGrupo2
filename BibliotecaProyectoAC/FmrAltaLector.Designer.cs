@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaProyectoAC
 {
-    partial class AltaLector
+    partial class FmrAltaLector
     {
         /// <summary>
         /// Required designer variable.

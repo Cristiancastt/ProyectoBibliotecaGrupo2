@@ -64,79 +64,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AltaLector.cs">
+    <Compile Include="FmrAltaLector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AltaLector.Designer.cs">
-      <DependentUpon>AltaLector.cs</DependentUpon>
+    <Compile Include="FmrAltaLector.Designer.cs">
+      <DependentUpon>FmrAltaLector.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnadirLibros.cs">
+    <Compile Include="FmrAnadirLibros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnadirLibros.Designer.cs">
-      <DependentUpon>AnadirLibros.cs</DependentUpon>
+    <Compile Include="FmrAnadirLibros.Designer.cs">
+      <DependentUpon>FmrAnadirLibros.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearCategoria.cs">
+    <Compile Include="FmrCrearCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearCategoria.Designer.cs">
-      <DependentUpon>CrearCategoria.cs</DependentUpon>
+    <Compile Include="FmrCrearCategoria.Designer.cs">
+      <DependentUpon>FmrCrearCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="DevolverLibro.cs">
+    <Compile Include="FmrDevolverLibro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DevolverLibro.Designer.cs">
-      <DependentUpon>DevolverLibro.cs</DependentUpon>
+    <Compile Include="FmrDevolverLibro.Designer.cs">
+      <DependentUpon>FmrDevolverLibro.cs</DependentUpon>
     </Compile>
-    <Compile Include="EliminarLibro.cs">
+    <Compile Include="FmrEliminarLibro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EliminarLibro.Designer.cs">
-      <DependentUpon>EliminarLibro.cs</DependentUpon>
+    <Compile Include="FmrEliminarLibro.Designer.cs">
+      <DependentUpon>FmrEliminarLibro.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListaMorosos.cs">
+    <Compile Include="FmrListaMorosos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListaMorosos.Designer.cs">
-      <DependentUpon>ListaMorosos.cs</DependentUpon>
+    <Compile Include="FmrListaMorosos.Designer.cs">
+      <DependentUpon>FmrListaMorosos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="FmrMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="FmrMenu.Designer.cs">
+      <DependentUpon>FmrMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrestarLibro.cs">
+    <Compile Include="FmrPrestarLibro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrestarLibro.Designer.cs">
-      <DependentUpon>PrestarLibro.cs</DependentUpon>
+    <Compile Include="FmrPrestarLibro.Designer.cs">
+      <DependentUpon>FmrPrestarLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AltaLector.resx">
-      <DependentUpon>AltaLector.cs</DependentUpon>
+    <EmbeddedResource Include="FmrAltaLector.resx">
+      <DependentUpon>FmrAltaLector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnadirLibros.resx">
-      <DependentUpon>AnadirLibros.cs</DependentUpon>
+    <EmbeddedResource Include="FmrAnadirLibros.resx">
+      <DependentUpon>FmrAnadirLibros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrearCategoria.resx">
-      <DependentUpon>CrearCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="FmrCrearCategoria.resx">
+      <DependentUpon>FmrCrearCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevolverLibro.resx">
-      <DependentUpon>DevolverLibro.cs</DependentUpon>
+    <EmbeddedResource Include="FmrDevolverLibro.resx">
+      <DependentUpon>FmrDevolverLibro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EliminarLibro.resx">
-      <DependentUpon>EliminarLibro.cs</DependentUpon>
+    <EmbeddedResource Include="FmrEliminarLibro.resx">
+      <DependentUpon>FmrEliminarLibro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListaMorosos.resx">
-      <DependentUpon>ListaMorosos.cs</DependentUpon>
+    <EmbeddedResource Include="FmrListaMorosos.resx">
+      <DependentUpon>FmrListaMorosos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="FmrMenu.resx">
+      <DependentUpon>FmrMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrestarLibro.resx">
-      <DependentUpon>PrestarLibro.cs</DependentUpon>
+    <EmbeddedResource Include="FmrPrestarLibro.resx">
+      <DependentUpon>FmrPrestarLibro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

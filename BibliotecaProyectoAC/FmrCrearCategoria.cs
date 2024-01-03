@@ -13,10 +13,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class CrearCategoria : Form
+    public partial class FmrCrearCategoria : Form
     {
         GestionBiblioteca controller = new GestionBiblioteca();
-        public CrearCategoria()
+        public FmrCrearCategoria()
         {
             InitializeComponent();
         }

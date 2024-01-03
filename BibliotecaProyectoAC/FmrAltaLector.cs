@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class AltaLector : Form
+    public partial class FmrAltaLector : Form
     {
-        public AltaLector()
+        public FmrAltaLector()
         {
             InitializeComponent();
         }

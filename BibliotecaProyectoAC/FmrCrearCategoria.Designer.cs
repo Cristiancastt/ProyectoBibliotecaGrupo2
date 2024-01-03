@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaProyectoAC
 {
-    partial class CrearCategoria
+    partial class FmrCrearCategoria
     {
         /// <summary>
         /// Required designer variable.

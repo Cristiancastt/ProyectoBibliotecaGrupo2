@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class AnadirLibros : Form
+    public partial class FmrAnadirLibros : Form
     {
 
         GestionBiblioteca controller = new GestionBiblioteca();
 
 
-        public AnadirLibros()
+        public FmrAnadirLibros()
         {
             InitializeComponent();
 
@@ -188,7 +188,7 @@ namespace BibliotecaProyectoAC
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new CrearCategoria().Show();
+            new FmrCrearCategoria().Show();
 
         }
 

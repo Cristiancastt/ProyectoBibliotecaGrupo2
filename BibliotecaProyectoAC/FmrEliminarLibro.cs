@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class EliminarLibro : Form
+    public partial class FmrEliminarLibro : Form
     {
-        public EliminarLibro()
+        public FmrEliminarLibro()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace BibliotecaProyectoAC
             if (!string.IsNullOrEmpty(isbn))
             {
                 // Puedes realizar la eliminación del libro aquí
-                string errores;
+                string errores = "";
                 GestionBiblioteca gestionBiblioteca = new GestionBiblioteca();
                 bool eliminado = gestionBiblioteca.borrarLibro(isbn, out errores);
 

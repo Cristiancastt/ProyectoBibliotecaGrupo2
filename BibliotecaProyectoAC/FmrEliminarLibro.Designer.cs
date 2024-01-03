@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaProyectoAC
 {
-    partial class EliminarLibro
+    partial class FmrEliminarLibro
     {
         /// <summary>
         /// Required designer variable.

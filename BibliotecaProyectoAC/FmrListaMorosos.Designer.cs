@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaProyectoAC
 {
-    partial class ListaMorosos
+    partial class FmrListaMorosos
     {
         /// <summary>
         /// Required designer variable.

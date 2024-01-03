@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class Menu : Form
+    public partial class FmrMenu : Form
     {
-        public Menu()
+        public FmrMenu()
         {
             InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new AnadirLibros().Show();
+            new FmrAnadirLibros().Show();
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -29,12 +29,12 @@ namespace BibliotecaProyectoAC
 
         private void button4_Click(object sender, EventArgs e)
         {
-            new DevolverLibro().Show();
+            new FmrDevolverLibro().Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new PrestarLibro().Show();
+            new FmrPrestarLibro().Show();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -44,17 +44,17 @@ namespace BibliotecaProyectoAC
 
         private void button6_Click(object sender, EventArgs e)
         {
-            new AltaLector().Show();
+            new FmrAltaLector().Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new ListaMorosos().Show();
+            new FmrListaMorosos().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new EliminarLibro().Show();
+            new FmrEliminarLibro().Show();
         }
     }
 }

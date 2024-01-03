@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class PrestarLibro : Form
+    public partial class FmrPrestarLibro : Form
     {
         GestionBiblioteca controlador = new GestionBiblioteca();
-        public PrestarLibro()
+        public FmrPrestarLibro()
         {
             InitializeComponent();
         }
@@ -120,7 +120,7 @@ namespace BibliotecaProyectoAC
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new AltaLector().Show();
+            new FmrAltaLector().Show();
         }
     }
 }

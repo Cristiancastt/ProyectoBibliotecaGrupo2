@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaProyectoAC
 {
-    partial class Menu
+    partial class FmrMenu
     {
         /// <summary>
         /// Required designer variable.

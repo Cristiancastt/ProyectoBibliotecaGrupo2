@@ -2,7 +2,7 @@
 
 namespace BibliotecaProyectoAC
 {
-    partial class DevolverLibro
+    partial class FmrDevolverLibro
     {
         /// <summary>
         /// Required designer variable.

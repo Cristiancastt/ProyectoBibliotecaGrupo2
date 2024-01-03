@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaProyectoAC
 {
-    partial class AnadirLibros
+    partial class FmrAnadirLibros
     {
         /// <summary>
         /// Required designer variable.

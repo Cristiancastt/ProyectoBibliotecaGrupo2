@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaProyectoAC
 {
-    partial class PrestarLibro
+    partial class FmrPrestarLibro
     {
         /// <summary>
         /// Required designer variable.

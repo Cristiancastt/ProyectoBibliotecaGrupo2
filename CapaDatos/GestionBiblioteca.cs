@@ -527,7 +527,7 @@ namespace CapaDatos
             return listaLibros;
         }
 
-        public Boolean Devoluciones(Libro libro, out string error)
+        public bool Devoluciones(Libro libro, out string error)
         {
             error = null;
             using (SqlConnection con = new SqlConnection (cadConexion))
@@ -560,6 +560,15 @@ namespace CapaDatos
             return true;
         }
 
+
+
+
+
+
+
+
+
+
         public bool borrarLibro(string isbn, out String error)
         {
 
@@ -579,27 +588,58 @@ namespace CapaDatos
 
             using (SqlConnection con = new SqlConnection(cadConexion))
             {
+                con.Open();
+                SqlTransaction transaction = null;
+
                 try
                 {
-                    con.Open();
+                    transaction = con.BeginTransaction();
 
-                    string eliminarLibro = "DELETE FROM libros WHERE isbn = @isbn";
-                    using (SqlCommand eliminarComando = new SqlCommand(eliminarLibro))
+                    string eliminarLibro = "DELETE FROM libros_autores WHERE isbn = @isbn;\r\nDELETE FROM libros_categorias WHERE isbn = @isbn;\r\nDELETE FROM libros WHERE isbn = @isbn;";
+                    using (SqlCommand eliminarComando = new SqlCommand(eliminarLibro, con, transaction))
                     {
                         eliminarComando.Parameters.AddWithValue("@isbn", isbn);
                         eliminarComando.ExecuteNonQuery();
                     }
+
+                    transaction.Commit();
                     return true;
 
                 }
                 catch
                 {
-                    error = "Error. No se ha podido borra el libro.";
+                    transaction?.Rollback();
+                    string esPrestable = "SELECT prestable FROM libros WHERE isbn = @isbn";
+                    SqlCommand comandoEsPrestable = new SqlCommand(esPrestable, con);
+                    comandoEsPrestable.Parameters.AddWithValue("@isbn", isbn);
+                    var resultado = comandoEsPrestable.ExecuteScalar();
+                    if (resultado != null)
+                    {
+                        bool prestable = (bool)resultado;
+                        if (prestable)
+                        {
+                            error = "El libro esta prestado. Primero hay que devolverlo para poder eliminarlo";
+                        }
+                        else
+                        {
+                            error = "Error. No se ha podido borra el libro.";
+
+                        }
+
+                    }
                     return false;
                 }
             }
-
         }
+
+
+      
+
+
+
+
+
+
 
 
         public bool AgregarCategoria(string nombreCategoria, out string error)

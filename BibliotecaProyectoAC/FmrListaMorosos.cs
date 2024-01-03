@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class ListaMorosos : Form
+    public partial class FmrListaMorosos : Form
     {
-        public ListaMorosos()
+        public FmrListaMorosos()
         {
             InitializeComponent();
         }

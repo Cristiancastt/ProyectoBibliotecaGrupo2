@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class DevolverLibro : Form
+    public partial class FmrDevolverLibro : Form
     {
         GestionBiblioteca controlador = new GestionBiblioteca();
-        public DevolverLibro()
+        public FmrDevolverLibro()
         {
             InitializeComponent();
         }
@@ -29,10 +29,10 @@ namespace BibliotecaProyectoAC
                 DataGridViewRow selectedRow = DataLibros.SelectedRows[0];
                 // Puedes acceder a las celdas de la fila por índice o por nombre de columna
                 Libro libDevolver = new Libro(selectedRow.Cells["isbn"].Value.ToString());
-                controlador.Devoluciones(libDevolver, out errores);
-                if (string.IsNullOrEmpty(errores))
+                bool devuelto = controlador.Devoluciones(libDevolver, out errores);
+                if (devuelto)
                 {
-
+                    MessageBox.Show("El libro se ha devuelto con exito");
                 }
                 else
                 {
