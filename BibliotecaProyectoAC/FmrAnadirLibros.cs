@@ -113,7 +113,7 @@ namespace BibliotecaProyectoAC
             }
             
             string errores;
-            if (controller.anadirLibro(isbn, titulo, editorial, sinopsis, caratulaSeleccionada, cantidad, prestable,autor ,categoria, out errores))
+            if (controller.AnadirLibro(isbn, titulo, editorial, sinopsis, caratulaSeleccionada, cantidad, prestable,autor ,categoria, out errores))
             {
                 MessageBox.Show("El libro se ha añadido con éxito.");
             }

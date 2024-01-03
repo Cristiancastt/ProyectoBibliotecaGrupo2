@@ -27,7 +27,7 @@ namespace BibliotecaProyectoAC
                 // Puedes realizar la eliminación del libro aquí
                 string errores = "";
                 GestionBiblioteca gestionBiblioteca = new GestionBiblioteca();
-                bool eliminado = gestionBiblioteca.borrarLibro(isbn, out errores);
+                bool eliminado = gestionBiblioteca.BorrarLibro(isbn, out errores);
 
                 if (eliminado)
                 {

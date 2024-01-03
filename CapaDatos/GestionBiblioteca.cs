@@ -113,7 +113,7 @@ namespace CapaDatos
             }
         }
 
-        public bool prestar(
+        public bool Prestar(
             String carnet,
             String isbn,
             DateTime fechaPrestamo,
@@ -192,7 +192,7 @@ namespace CapaDatos
             }
         }
 
-        public List<Libro> buscarLibroPorISBN(string isbn, out string errores)
+        public List<Libro> BuscarLibroPorISBN(string isbn, out string errores)
         {
             List<Libro> librosEncontrados = new List<Libro>();
             errores = null;
@@ -239,7 +239,7 @@ namespace CapaDatos
             }
         }
 
-        public List<Lector> buscarLectorCarnet(string carnet, out string errores)
+        public List<Lector> BuscarLectorCarnet(string carnet, out string errores)
         {
             List<Lector> lectores = new List<Lector>();
             errores = "";
@@ -391,7 +391,7 @@ namespace CapaDatos
 
         }
 
-        public bool anadirLibro(String isbn, String titulo, String editorial, String sinopsis,String caratulaSeleccionada, int cantidad, byte prestable, DataGridViewSelectedRowCollection autores , DataGridViewSelectedRowCollection categorias , out String errores)
+        public bool AnadirLibro(String isbn, String titulo, String editorial, String sinopsis,String caratulaSeleccionada, int cantidad, byte prestable, DataGridViewSelectedRowCollection autores , DataGridViewSelectedRowCollection categorias , out String errores)
         {
             if (String.IsNullOrEmpty(isbn))
             {
@@ -569,7 +569,7 @@ namespace CapaDatos
 
 
 
-        public bool borrarLibro(string isbn, out String error)
+        public bool BorrarLibro(string isbn, out String error)
         {
 
             if (String.IsNullOrEmpty(isbn))

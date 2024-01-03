@@ -28,7 +28,7 @@ namespace BibliotecaProyectoAC
             }
             string errores;
             DataUsuarios.DataSource = null;
-            DataUsuarios.DataSource = controlador.buscarLectorCarnet(carnet, out errores);
+            DataUsuarios.DataSource = controlador.BuscarLectorCarnet(carnet, out errores);
             if (string.IsNullOrEmpty(errores))
             {
 
@@ -51,7 +51,7 @@ namespace BibliotecaProyectoAC
             }
             string errores;
             DataLibro.DataSource = null;
-            var libro = controlador.buscarLibroPorISBN(isbn, out errores);
+            var libro = controlador.BuscarLibroPorISBN(isbn, out errores);
             DataLibro.DataSource = libro;
             if (string.IsNullOrEmpty(errores))
             {
@@ -107,7 +107,7 @@ namespace BibliotecaProyectoAC
             }
 
             string errores;
-            if (controlador.prestar(carnet, isbn, fechaPrestamo, fechaDevolucion, out errores))
+            if (controlador.Prestar(carnet, isbn, fechaPrestamo, fechaDevolucion, out errores))
             {
                 MessageBox.Show("El préstamo se ha realizado con éxito.");
             }
@@ -121,6 +121,11 @@ namespace BibliotecaProyectoAC
         private void button2_Click(object sender, EventArgs e)
         {
             new FmrAltaLector().Show();
+        }
+
+        private void FmrPrestarLibro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

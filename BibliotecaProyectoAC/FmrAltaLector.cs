@@ -54,5 +54,10 @@ namespace BibliotecaProyectoAC
             }
 
         }
+
+        private void FmrAltaLector_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

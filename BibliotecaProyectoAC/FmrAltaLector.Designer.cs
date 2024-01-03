@@ -43,11 +43,12 @@
             // BtnEliminarLibro
             // 
             this.BtnEliminarLibro.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.BtnEliminarLibro.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminarLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminarLibro.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminarLibro.Location = new System.Drawing.Point(325, 388);
+            this.BtnEliminarLibro.Location = new System.Drawing.Point(433, 478);
+            this.BtnEliminarLibro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnEliminarLibro.Name = "BtnEliminarLibro";
-            this.BtnEliminarLibro.Size = new System.Drawing.Size(148, 60);
+            this.BtnEliminarLibro.Size = new System.Drawing.Size(197, 74);
             this.BtnEliminarLibro.TabIndex = 33;
             this.BtnEliminarLibro.Text = "Registrarse";
             this.BtnEliminarLibro.UseVisualStyleBackColor = false;
@@ -56,91 +57,100 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(318, 2);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(424, 2);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 38);
+            this.label3.Size = new System.Drawing.Size(223, 46);
             this.label3.TabIndex = 32;
             this.label3.Text = "Alta Lector";
             // 
             // TxtEmail
             // 
-            this.TxtEmail.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEmail.Location = new System.Drawing.Point(292, 242);
+            this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEmail.Location = new System.Drawing.Point(389, 298);
+            this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(220, 27);
+            this.TxtEmail.Size = new System.Drawing.Size(292, 30);
             this.TxtEmail.TabIndex = 31;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(289, 215);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(385, 265);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 19);
+            this.label6.Size = new System.Drawing.Size(60, 25);
             this.label6.TabIndex = 30;
             this.label6.Text = "Email";
             // 
             // TxtTelefono
             // 
-            this.TxtTelefono.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTelefono.Location = new System.Drawing.Point(292, 165);
+            this.TxtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTelefono.Location = new System.Drawing.Point(389, 203);
+            this.TxtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtTelefono.Name = "TxtTelefono";
-            this.TxtTelefono.Size = new System.Drawing.Size(220, 27);
+            this.TxtTelefono.Size = new System.Drawing.Size(292, 30);
             this.TxtTelefono.TabIndex = 29;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(289, 139);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(385, 171);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 19);
+            this.label4.Size = new System.Drawing.Size(135, 25);
             this.label4.TabIndex = 28;
             this.label4.Text = "Num Teléfono";
             // 
             // TxtContra
             // 
-            this.TxtContra.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContra.Location = new System.Drawing.Point(292, 321);
+            this.TxtContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtContra.Location = new System.Drawing.Point(389, 395);
+            this.TxtContra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtContra.Name = "TxtContra";
             this.TxtContra.PasswordChar = '·';
-            this.TxtContra.Size = new System.Drawing.Size(220, 27);
+            this.TxtContra.Size = new System.Drawing.Size(292, 30);
             this.TxtContra.TabIndex = 27;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(289, 294);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(385, 362);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 19);
+            this.label2.Size = new System.Drawing.Size(114, 25);
             this.label2.TabIndex = 26;
             this.label2.Text = "Contraseña";
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombre.Location = new System.Drawing.Point(292, 91);
+            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNombre.Location = new System.Drawing.Point(389, 112);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(220, 27);
+            this.TxtNombre.Size = new System.Drawing.Size(292, 30);
             this.TxtNombre.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(289, 64);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(385, 79);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 19);
+            this.label1.Size = new System.Drawing.Size(81, 25);
             this.label1.TabIndex = 24;
             this.label1.Text = "Nombre";
             // 
-            // AltaLector
+            // FmrAltaLector
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.BtnEliminarLibro);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtEmail);
@@ -151,10 +161,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.label1);
-            this.Name = "AltaLector";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FmrAltaLector";
             this.Text = "                                                                                 " +
     "                                                                                " +
     "                           ";
+            this.Load += new System.EventHandler(this.FmrAltaLector_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
