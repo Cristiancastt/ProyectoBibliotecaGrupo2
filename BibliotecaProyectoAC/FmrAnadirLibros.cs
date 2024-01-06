@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace BibliotecaProyectoAC
 {
-    public partial class FmrAnadirLibros : Form
+    public partial class FrmAnadirLibro : Form
     {
 
         GestionBiblioteca controller = new GestionBiblioteca();
 
 
-        public FmrAnadirLibros()
+        public FrmAnadirLibro()
         {
             InitializeComponent();
 

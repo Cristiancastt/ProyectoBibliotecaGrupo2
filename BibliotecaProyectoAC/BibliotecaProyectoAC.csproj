@@ -76,12 +76,6 @@
     <Compile Include="FmrAnadirLibros.Designer.cs">
       <DependentUpon>FmrAnadirLibros.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmrCrearCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FmrCrearCategoria.Designer.cs">
-      <DependentUpon>FmrCrearCategoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="FmrDevolverLibro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,9 +113,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FmrAnadirLibros.resx">
       <DependentUpon>FmrAnadirLibros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FmrCrearCategoria.resx">
-      <DependentUpon>FmrCrearCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmrDevolverLibro.resx">
       <DependentUpon>FmrDevolverLibro.cs</DependentUpon>

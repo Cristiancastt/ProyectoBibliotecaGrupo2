@@ -19,7 +19,7 @@ namespace BibliotecaProyectoAC
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new FmrAnadirLibros().Show();
+            new FrmAnadirLibro().Show();
         }
 
         private void Menu_Load(object sender, EventArgs e)

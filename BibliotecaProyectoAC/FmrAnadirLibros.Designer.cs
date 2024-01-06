@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaProyectoAC
 {
-    partial class FmrAnadirLibros
+    partial class FrmAnadirLibro
     {
         /// <summary>
         /// Required designer variable.
@@ -328,7 +328,7 @@
             this.txtCategoria.Size = new System.Drawing.Size(116, 26);
             this.txtCategoria.TabIndex = 29;
             // 
-            // FmrAnadirLibros
+            // FrmAnadirLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -359,7 +359,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtISBN);
             this.Controls.Add(this.label1);
-            this.Name = "FmrAnadirLibros";
+            this.Name = "FrmAnadirLibro";
             this.Text = "AnadirLibros";
             this.Load += new System.EventHandler(this.AnadirLibros_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
