@@ -33,6 +33,7 @@ namespace BibliotecaProyectoAC
             if (controller.AgregarCategoria(TxtNombreCategoria.Text,out errores))
             {
                 MessageBox.Show("El registro se ha realizado con éxito.");
+                TxtNombreCategoria.Clear();
             }
             else
             {

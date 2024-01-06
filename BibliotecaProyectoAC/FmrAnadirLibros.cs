@@ -41,13 +41,11 @@ namespace BibliotecaProyectoAC
         private string caratulaSeleccionada = "";
         private void BtnAñadirLibro_Click(object sender, EventArgs e)
         {
-            string isbn = TxtISBN.Text;
-            string titulo = TxtTitulo.Text;
-            string sinopsis = TxtSinopsis.Text;
-            string unidades = TxtUnidades.Text;
-            string editorial = TxtEditorial.Text;
-            DataGridViewSelectedRowCollection autor = dataAutores.SelectedRows;
-            DataGridViewSelectedRowCollection categoria = DataCategorias.SelectedRows;
+            string isbn = txtISBN.Text;
+            string titulo = txtTitulo.Text;
+            string sinopsis = txtSinopsis.Text;
+            string unidades = txtUnidades.Text;
+            string editorial = txtEditorial.Text;
             // Validaciones para comprobar que las cadenas no están vacías
 
             if (string.IsNullOrEmpty(isbn))
@@ -90,7 +88,7 @@ namespace BibliotecaProyectoAC
                 prestable = 0;
             }
             int cantidad;
-            if (int.TryParse(TxtUnidades.Text, out cantidad))
+            if (int.TryParse(txtUnidades.Text, out cantidad))
             {
                 
             }
@@ -111,9 +109,26 @@ namespace BibliotecaProyectoAC
                 MessageBox.Show("Debes seleccionar una carátula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
+            if (dgvAutores.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar al menos un autor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (dgvCategorias.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar al menos una categoría.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DataGridViewSelectedRowCollection autoresSeleccionados = dgvAutores.SelectedRows;
+            DataGridViewSelectedRowCollection categoriasSeleccionadas = dgvCategorias.SelectedRows;
+
+
+
             string errores;
-            if (controller.AnadirLibro(isbn, titulo, editorial, sinopsis, caratulaSeleccionada, cantidad, prestable,autor ,categoria, out errores))
+            if (controller.AnadirLibro(isbn, titulo, editorial, sinopsis, caratulaSeleccionada, cantidad, prestable, autoresSeleccionados, categoriasSeleccionadas, out errores))
             {
                 MessageBox.Show("El libro se ha añadido con éxito.");
             }
@@ -176,24 +191,76 @@ namespace BibliotecaProyectoAC
 
         private void AnadirLibros_Load_1(object sender, EventArgs e)
         {
-            DataCategorias.DataSource = null;
+            dgvAutores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAutores.MultiSelect = true;
+            dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCategorias.MultiSelect = true;
+
+            dgvCategorias.DataSource = null;
+            this.ActualizarCategorias_Click(sender, e);
+
+      
+           this.ActualizarAutores_Click(sender, e);
+
+        }
+
+        private void ActualizarAutores_Click(object sender, EventArgs e)
+        {
+            string errores;
+            DataTable autoresTable = controller.ObtenerAutoresNombre(out errores);
+            dgvAutores.DataSource = autoresTable;
+        }
+
+        private void ActualizarCategorias_Click(object sender, EventArgs e)
+        {
             string errores;
             DataTable categoriasTable = controller.ObtenerCategoriasNombre(out errores);
-            DataCategorias.DataSource = categoriasTable;
-
-
-            DataTable autoresTable = controller.ObtenerAutoresNombre(out errores);
-            dataAutores.DataSource = autoresTable;
+            dgvCategorias.DataSource = categoriasTable;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new FmrCrearCategoria().Show();
+
+            String errores;
+            if (controller.AgregarCategoria(txtCategoria.Text, out errores))
+            {
+                // Si la categoría se agrega con éxito
+                MessageBox.Show("El registro se ha realizado con éxito.");
+                txtCategoria.Clear();
+                this.ActualizarCategorias_Click(sender, e); 
+            }
+            else
+            {
+                // Si hay un error al agregar la categoría
+                MessageBox.Show("Error: " + errores);
+                txtCategoria.Clear();
+            }
 
         }
 
         private void BtnAnadirAutor_Click(object sender, EventArgs e)
         {
+            String errores;
+            if (controller.AgregarAutor(txtAutores.Text, out errores))
+            {
+                // Si el autor se agrega con éxito
+                txtAutores.Clear();
+                this.ActualizarAutores_Click(sender, e); // Actualiza la lista de autores
+                MessageBox.Show("El registro se ha realizado con éxito.");
+            }
+            else
+            {
+                // Si hay un error al agregar el autor
+                MessageBox.Show("Error: " + errores);
+                txtAutores.Clear();
+            }
+        }
+
+        private void BtnBuscarAutor_Click(object sender, EventArgs e)
+        {
+            string errores;
+            DataTable autoresTable = controller.ObtenerAutorNombrePorTrozo( txtAutores.Text,out errores);
+            dgvAutores.DataSource = autoresTable;
 
         }
     }

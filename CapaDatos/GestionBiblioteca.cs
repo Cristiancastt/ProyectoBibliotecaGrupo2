@@ -347,6 +347,44 @@ namespace CapaDatos
             }
         }
 
+        public bool AgregarAutor(String nombreAutor , out String error)
+        {
+            error = "";
+            if (String.IsNullOrEmpty(nombreAutor))
+            {
+                error = "No puedes introducir una categoría vacía";
+                return false;
+            }
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string consulta = "INSERT INTO autores (nombre) VALUES (@nombreAutor)";
+                    SqlCommand cmd = new SqlCommand(consulta, con);
+                    cmd.Parameters.AddWithValue("@nombreAutor", nombreAutor);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        // El autor se agregó con éxito
+                       
+                        return true;
+                    }
+                    else
+                    {
+                        error = "No se pudo agregar el autor.";
+                        return false;
+                    }
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    return false;
+                }
+            }
+        }
+
         public Libro LibroPorIsbn(String isbnConsulta, out String error)
         {
             using (SqlConnection con = new SqlConnection(cadConexion))
@@ -391,107 +429,83 @@ namespace CapaDatos
 
         }
 
-        public bool AnadirLibro(String isbn, String titulo, String editorial, String sinopsis,String caratulaSeleccionada, int cantidad, byte prestable, DataGridViewSelectedRowCollection autores , DataGridViewSelectedRowCollection categorias , out String errores)
+        public bool AnadirLibro(string isbn, string titulo, string editorial, string sinopsis, string caratulaSeleccionada, int cantidad, byte prestable, DataGridViewSelectedRowCollection autores, DataGridViewSelectedRowCollection categorias, out string errores)
         {
-            if (String.IsNullOrEmpty(isbn))
-            {
-                errores = "El nombre no puede estar vacío";
-                return false;
-            }
-              if (String.IsNullOrEmpty(titulo))
-            {
-                errores = "El titulo no puede estar vacío";
-                return false;
-            }
-            if (String.IsNullOrEmpty(editorial))
-            {
-                errores = "El editorial no puede estar vacío";
-                return false;
-            }
-            if (String.IsNullOrEmpty(sinopsis))
-            {
-                errores = "El sinopsis no puede estar vacío";
-                return false;
-            }
-            if (String.IsNullOrEmpty(caratulaSeleccionada))
-            {
-                errores = "La caratula no puede estar vacío";
-                return false;
-            }
-            if (String.IsNullOrEmpty(cantidad.ToString()))
-            {
-                errores = "El nombre no puede estar vacío";
-                return false;
-            }
-            if (String.IsNullOrEmpty(prestable.ToString()))
-            {
-                errores = "El prestable no puede estar vacío";
-                return false;
-            }
-            if (!String.IsNullOrEmpty(autores.ToString()))
-            {
-                errores = "El autor no puede estar vacío";
-                return false;
-            }
-            if (!String.IsNullOrEmpty(categorias.ToString()))
-            {
-                errores = "La categoria no puede estar vacía";
-                return false;
-            }
-            Libro aux = new Libro(isbn);
+            errores = string.Empty;
+
+            // Validaciones
+            if (string.IsNullOrEmpty(isbn)) { errores = "El ISBN no puede estar vacío"; return false; }
+            if (string.IsNullOrEmpty(titulo)) { errores = "El título no puede estar vacío"; return false; }
+            if (string.IsNullOrEmpty(editorial)) { errores = "La editorial no puede estar vacía"; return false; }
+            if (string.IsNullOrEmpty(sinopsis)) { errores = "La sinopsis no puede estar vacía"; return false; }
+            if (string.IsNullOrEmpty(caratulaSeleccionada)) { errores = "La carátula no puede estar vacía"; return false; }
+            if (autores.Count == 0) { errores = "Debe seleccionar al menos un autor"; return false; }
+            if (categorias.Count == 0) { errores = "Debe seleccionar al menos una categoría"; return false; }
+
+            // Verificar si el libro ya existe
             Libro libroBbDd = LibroPorIsbn(isbn, out errores);
-            if (libroBbDd != null && libroBbDd.Equals(aux)) {
-                errores = "El libro ya existe";
+            if (libroBbDd != null) { errores = "El libro ya existe"; return false; }
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(cadConexion))
+                {
+                    con.Open();
+
+                    // Insertar libro
+                    string consultaLibro = "INSERT INTO libros (isbn, titulo, editorial, sinopsis, caratula, cantidad_unidades, prestable) VALUES (@isbn, @titulo, @editorial, @sinopsis, @caratula, @cantidad, @prestable)";
+                    SqlCommand insertarLibro = new SqlCommand(consultaLibro, con);
+                    insertarLibro.Parameters.AddWithValue("@isbn", isbn);
+                    insertarLibro.Parameters.AddWithValue("@titulo", titulo);
+                    insertarLibro.Parameters.AddWithValue("@editorial", editorial);
+                    insertarLibro.Parameters.AddWithValue("@sinopsis", sinopsis);
+                    insertarLibro.Parameters.AddWithValue("@caratula", caratulaSeleccionada);
+                    insertarLibro.Parameters.AddWithValue("@cantidad", cantidad);
+                    insertarLibro.Parameters.AddWithValue("@prestable", prestable);
+                    insertarLibro.ExecuteNonQuery();
+
+                    // Insertar relación libro-autor
+                    foreach (DataGridViewRow filaAutor in autores)
+                    {
+                        string nombreAutor = filaAutor.Cells["nombre"].Value.ToString(); 
+                        string consultaAutorId = "SELECT autor_id FROM autores WHERE nombre = @nombreAutor";
+                        SqlCommand comandoAutorId = new SqlCommand(consultaAutorId, con);
+                        comandoAutorId.Parameters.AddWithValue("@nombreAutor", nombreAutor);
+                        int autorId = (int)comandoAutorId.ExecuteScalar();
+
+                        string consultaLibroAutor = "INSERT INTO libros_autores (isbn, autor_id) VALUES (@isbn, @autorId)";
+                        SqlCommand insertarLibroAutor = new SqlCommand(consultaLibroAutor, con);
+                        insertarLibroAutor.Parameters.AddWithValue("@isbn", isbn);
+                        insertarLibroAutor.Parameters.AddWithValue("@autorId", autorId);
+                        insertarLibroAutor.ExecuteNonQuery();
+                    }
+
+                    // Insertar relación libro-categoría
+                    foreach (DataGridViewRow filaCategoria in categorias)
+                    {
+                        string descripcionCategoria = filaCategoria.Cells["descripcion"].Value.ToString(); 
+                        string consultaCategoriaId = "SELECT categoria_id FROM categorias WHERE descripcion = @descripcionCategoria";
+                        SqlCommand comandoCategoriaId = new SqlCommand(consultaCategoriaId, con);
+                        comandoCategoriaId.Parameters.AddWithValue("@descripcionCategoria", descripcionCategoria);
+                        int categoriaId = (int)comandoCategoriaId.ExecuteScalar();
+
+                        string consultaLibroCategoria = "INSERT INTO libros_categorias (isbn, categoria_id) VALUES (@isbn, @categoriaId)";
+                        SqlCommand insertarLibroCategoria = new SqlCommand(consultaLibroCategoria, con);
+                        insertarLibroCategoria.Parameters.AddWithValue("@isbn", isbn);
+                        insertarLibroCategoria.Parameters.AddWithValue("@categoriaId", categoriaId);
+                        insertarLibroCategoria.ExecuteNonQuery();
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                errores = "Error al añadir el libro: " + ex.Message;
                 return false;
-            }
-
-
-            using (SqlConnection con = new SqlConnection(cadConexion))
-            {
-                con.Open();
-                foreach (var aut in autores)
-                {
-                    string consultaAutor = "INSERT INTO autores (nombre) VALUES (@autor)";
-                    SqlCommand insertarAutor = new SqlCommand(consultaAutor, con);
-                    insertarAutor.Parameters.AddWithValue("@autor", aut.ToString());
-                    insertarAutor.ExecuteNonQuery();
-                }
-           
-            }
-
-            // Insertar la categoría si no existe
-            using (SqlConnection con = new SqlConnection(cadConexion))
-            {
-                con.Open();
-                foreach (String cat in categorias)
-                {
-                    string consultaCategoria = "INSERT INTO categorias (descripcion) VALUES (@categoria)";
-                    SqlCommand insertarCategoria = new SqlCommand(consultaCategoria, con);
-                    insertarCategoria.Parameters.AddWithValue("@categoria", cat.ToString());
-                    insertarCategoria.ExecuteNonQuery();
-                }
-
-            }
-
-            // Insertar el libro
-            using (SqlConnection con = new SqlConnection(cadConexion))
-            {
-                con.Open();
-
-                string consulta = "INSERT INTO Libros (isbn, titulo, editorial, sinopsis, caratula, cantidad_unidades, prestable) VALUES (@isbn, @titulo, @editorial, @sinopsis, @caratula, @cantidad, @prestable)";
-                SqlCommand insertarLibro = new SqlCommand(consulta, con);
-                insertarLibro.Parameters.AddWithValue("@isbn", isbn);
-                insertarLibro.Parameters.AddWithValue("@titulo", titulo);
-                insertarLibro.Parameters.AddWithValue("@editorial", editorial);
-                insertarLibro.Parameters.AddWithValue("@sinopsis", sinopsis);
-                insertarLibro.Parameters.AddWithValue("@caratula", caratulaSeleccionada);
-                insertarLibro.Parameters.AddWithValue("@cantidad", cantidad);
-                insertarLibro.Parameters.AddWithValue("@prestable", prestable);
-
-                int filasAfectadas = insertarLibro.ExecuteNonQuery();
-                return filasAfectadas > 0;
             }
         }
+
 
         public List<Libro> ListPrestados(string id, out string error) // Devuelve una lista de libros que son prestados por el lector
         {
@@ -635,7 +649,41 @@ namespace CapaDatos
 
       
 
+        public DataTable ObtenerAutorNombrePorTrozo(string trozoNombre ,out String error)
+        {
+            error = "";
+            DataTable autoresTable = new DataTable();
 
+            using (SqlConnection con = new SqlConnection(cadConexion))
+            {
+                try
+                {
+                    con.Open();
+                    string consulta = "SELECT nombre FROM autores WHERE nombre LIKE @trozoNombre";
+                    SqlCommand recolectarAutores = new SqlCommand(consulta, con);
+                    recolectarAutores.Parameters.AddWithValue("@trozoNombre", "%" + trozoNombre + "%");
+                    SqlDataReader datos = recolectarAutores.ExecuteReader();
+
+                    if (!datos.HasRows)
+                    {
+                        error = "No hay autores.";
+                        return autoresTable;
+
+                    }
+
+                    autoresTable.Load(datos); // Cargar los datos en el DataTable
+
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    return autoresTable;
+                }
+
+                return autoresTable;
+            }
+
+        }
 
 
 

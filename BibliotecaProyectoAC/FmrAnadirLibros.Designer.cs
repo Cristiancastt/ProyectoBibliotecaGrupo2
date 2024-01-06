@@ -28,44 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TxtISBN = new System.Windows.Forms.TextBox();
+            this.txtISBN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.TxtTitulo = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TxtEditorial = new System.Windows.Forms.TextBox();
+            this.txtEditorial = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TxtSinopsis = new System.Windows.Forms.TextBox();
+            this.txtSinopsis = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.TxtUnidades = new System.Windows.Forms.TextBox();
+            this.txtUnidades = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.BtnAñadirLibro = new System.Windows.Forms.Button();
-            this.TxtAutores = new System.Windows.Forms.TextBox();
+            this.btnAñadirLibro = new System.Windows.Forms.Button();
+            this.txtAutores = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.BtnAnadirAutor = new System.Windows.Forms.Button();
-            this.BtnBuscarAutor = new System.Windows.Forms.Button();
-            this.DataCategorias = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAnadirAutor = new System.Windows.Forms.Button();
+            this.btnBuscarAutor = new System.Windows.Forms.Button();
+            this.dgvCategorias = new System.Windows.Forms.DataGridView();
+            this.btnCrearCategoria = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarCaratula = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.PrestableSi = new System.Windows.Forms.RadioButton();
             this.PrestableNo = new System.Windows.Forms.RadioButton();
-            this.dataAutores = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.DataCategorias)).BeginInit();
+            this.dgvAutores = new System.Windows.Forms.DataGridView();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataAutores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAutores)).BeginInit();
             this.SuspendLayout();
             // 
-            // TxtISBN
+            // txtISBN
             // 
-            this.TxtISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtISBN.Location = new System.Drawing.Point(43, 75);
-            this.TxtISBN.Name = "TxtISBN";
-            this.TxtISBN.Size = new System.Drawing.Size(220, 26);
-            this.TxtISBN.TabIndex = 3;
+            this.txtISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtISBN.Location = new System.Drawing.Point(43, 75);
+            this.txtISBN.Name = "txtISBN";
+            this.txtISBN.Size = new System.Drawing.Size(220, 26);
+            this.txtISBN.TabIndex = 3;
             // 
             // label1
             // 
@@ -77,13 +78,13 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "ISBN";
             // 
-            // TxtTitulo
+            // txtTitulo
             // 
-            this.TxtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTitulo.Location = new System.Drawing.Point(43, 162);
-            this.TxtTitulo.Name = "TxtTitulo";
-            this.TxtTitulo.Size = new System.Drawing.Size(220, 26);
-            this.TxtTitulo.TabIndex = 5;
+            this.txtTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitulo.Location = new System.Drawing.Point(43, 162);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(220, 26);
+            this.txtTitulo.TabIndex = 5;
             // 
             // label2
             // 
@@ -95,13 +96,13 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Titulo";
             // 
-            // TxtEditorial
+            // txtEditorial
             // 
-            this.TxtEditorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEditorial.Location = new System.Drawing.Point(43, 251);
-            this.TxtEditorial.Name = "TxtEditorial";
-            this.TxtEditorial.Size = new System.Drawing.Size(220, 26);
-            this.TxtEditorial.TabIndex = 7;
+            this.txtEditorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditorial.Location = new System.Drawing.Point(43, 251);
+            this.txtEditorial.Name = "txtEditorial";
+            this.txtEditorial.Size = new System.Drawing.Size(220, 26);
+            this.txtEditorial.TabIndex = 7;
             // 
             // label3
             // 
@@ -113,13 +114,13 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Editorial";
             // 
-            // TxtSinopsis
+            // txtSinopsis
             // 
-            this.TxtSinopsis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSinopsis.Location = new System.Drawing.Point(291, 164);
-            this.TxtSinopsis.Name = "TxtSinopsis";
-            this.TxtSinopsis.Size = new System.Drawing.Size(220, 26);
-            this.TxtSinopsis.TabIndex = 9;
+            this.txtSinopsis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSinopsis.Location = new System.Drawing.Point(291, 164);
+            this.txtSinopsis.Name = "txtSinopsis";
+            this.txtSinopsis.Size = new System.Drawing.Size(220, 26);
+            this.txtSinopsis.TabIndex = 9;
             // 
             // label4
             // 
@@ -141,13 +142,13 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Caratula";
             // 
-            // TxtUnidades
+            // txtUnidades
             // 
-            this.TxtUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtUnidades.Location = new System.Drawing.Point(291, 75);
-            this.TxtUnidades.Name = "TxtUnidades";
-            this.TxtUnidades.Size = new System.Drawing.Size(220, 26);
-            this.TxtUnidades.TabIndex = 13;
+            this.txtUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnidades.Location = new System.Drawing.Point(291, 75);
+            this.txtUnidades.Name = "txtUnidades";
+            this.txtUnidades.Size = new System.Drawing.Size(220, 26);
+            this.txtUnidades.TabIndex = 13;
             // 
             // label6
             // 
@@ -170,26 +171,26 @@
             this.label7.Text = "Categoria";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // BtnAñadirLibro
+            // btnAñadirLibro
             // 
-            this.BtnAñadirLibro.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.BtnAñadirLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAñadirLibro.ForeColor = System.Drawing.Color.White;
-            this.BtnAñadirLibro.Location = new System.Drawing.Point(647, 383);
-            this.BtnAñadirLibro.Name = "BtnAñadirLibro";
-            this.BtnAñadirLibro.Size = new System.Drawing.Size(205, 109);
-            this.BtnAñadirLibro.TabIndex = 16;
-            this.BtnAñadirLibro.Text = "Añadir Libro";
-            this.BtnAñadirLibro.UseVisualStyleBackColor = false;
-            this.BtnAñadirLibro.Click += new System.EventHandler(this.BtnAñadirLibro_Click);
+            this.btnAñadirLibro.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnAñadirLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAñadirLibro.ForeColor = System.Drawing.Color.White;
+            this.btnAñadirLibro.Location = new System.Drawing.Point(647, 383);
+            this.btnAñadirLibro.Name = "btnAñadirLibro";
+            this.btnAñadirLibro.Size = new System.Drawing.Size(205, 109);
+            this.btnAñadirLibro.TabIndex = 16;
+            this.btnAñadirLibro.Text = "Añadir Libro";
+            this.btnAñadirLibro.UseVisualStyleBackColor = false;
+            this.btnAñadirLibro.Click += new System.EventHandler(this.BtnAñadirLibro_Click);
             // 
-            // TxtAutores
+            // txtAutores
             // 
-            this.TxtAutores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtAutores.Location = new System.Drawing.Point(550, 75);
-            this.TxtAutores.Name = "TxtAutores";
-            this.TxtAutores.Size = new System.Drawing.Size(302, 26);
-            this.TxtAutores.TabIndex = 18;
+            this.txtAutores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAutores.Location = new System.Drawing.Point(550, 75);
+            this.txtAutores.Name = "txtAutores";
+            this.txtAutores.Size = new System.Drawing.Size(302, 26);
+            this.txtAutores.TabIndex = 18;
             // 
             // label8
             // 
@@ -201,77 +202,78 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Autor";
             // 
-            // BtnAnadirAutor
+            // btnAnadirAutor
             // 
-            this.BtnAnadirAutor.BackColor = System.Drawing.Color.SteelBlue;
-            this.BtnAnadirAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAnadirAutor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnAnadirAutor.Location = new System.Drawing.Point(550, 108);
-            this.BtnAnadirAutor.Name = "BtnAnadirAutor";
-            this.BtnAnadirAutor.Size = new System.Drawing.Size(148, 32);
-            this.BtnAnadirAutor.TabIndex = 19;
-            this.BtnAnadirAutor.Text = "Añadir Autor";
-            this.BtnAnadirAutor.UseVisualStyleBackColor = false;
-            this.BtnAnadirAutor.Click += new System.EventHandler(this.BtnAnadirAutor_Click);
+            this.btnAnadirAutor.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAnadirAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnadirAutor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAnadirAutor.Location = new System.Drawing.Point(550, 108);
+            this.btnAnadirAutor.Name = "btnAnadirAutor";
+            this.btnAnadirAutor.Size = new System.Drawing.Size(148, 32);
+            this.btnAnadirAutor.TabIndex = 19;
+            this.btnAnadirAutor.Text = "Añadir Autor";
+            this.btnAnadirAutor.UseVisualStyleBackColor = false;
+            this.btnAnadirAutor.Click += new System.EventHandler(this.BtnAnadirAutor_Click);
             // 
-            // BtnBuscarAutor
+            // btnBuscarAutor
             // 
-            this.BtnBuscarAutor.BackColor = System.Drawing.Color.SteelBlue;
-            this.BtnBuscarAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscarAutor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnBuscarAutor.Location = new System.Drawing.Point(704, 108);
-            this.BtnBuscarAutor.Name = "BtnBuscarAutor";
-            this.BtnBuscarAutor.Size = new System.Drawing.Size(148, 32);
-            this.BtnBuscarAutor.TabIndex = 20;
-            this.BtnBuscarAutor.Text = "Buscar Autor";
-            this.BtnBuscarAutor.UseVisualStyleBackColor = false;
+            this.btnBuscarAutor.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnBuscarAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarAutor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscarAutor.Location = new System.Drawing.Point(704, 108);
+            this.btnBuscarAutor.Name = "btnBuscarAutor";
+            this.btnBuscarAutor.Size = new System.Drawing.Size(148, 32);
+            this.btnBuscarAutor.TabIndex = 20;
+            this.btnBuscarAutor.Text = "Buscar Autor";
+            this.btnBuscarAutor.UseVisualStyleBackColor = false;
+            this.btnBuscarAutor.Click += new System.EventHandler(this.BtnBuscarAutor_Click);
             // 
-            // DataCategorias
+            // dgvCategorias
             // 
-            this.DataCategorias.AllowUserToAddRows = false;
-            this.DataCategorias.AllowUserToDeleteRows = false;
-            this.DataCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataCategorias.Location = new System.Drawing.Point(44, 342);
-            this.DataCategorias.Name = "DataCategorias";
-            this.DataCategorias.ReadOnly = true;
-            this.DataCategorias.Size = new System.Drawing.Size(283, 150);
-            this.DataCategorias.TabIndex = 21;
+            this.dgvCategorias.AllowUserToAddRows = false;
+            this.dgvCategorias.AllowUserToDeleteRows = false;
+            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategorias.Location = new System.Drawing.Point(44, 342);
+            this.dgvCategorias.Name = "dgvCategorias";
+            this.dgvCategorias.ReadOnly = true;
+            this.dgvCategorias.Size = new System.Drawing.Size(283, 150);
+            this.dgvCategorias.TabIndex = 21;
             // 
-            // button3
+            // btnCrearCategoria
             // 
-            this.button3.BackColor = System.Drawing.Color.SteelBlue;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(179, 309);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 27);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Crear Categoría";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnCrearCategoria.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCrearCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnCrearCategoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCrearCategoria.Location = new System.Drawing.Point(267, 311);
+            this.btnCrearCategoria.Name = "btnCrearCategoria";
+            this.btnCrearCategoria.Size = new System.Drawing.Size(148, 27);
+            this.btnCrearCategoria.TabIndex = 22;
+            this.btnCrearCategoria.Text = "Crear Categoría";
+            this.btnCrearCategoria.UseVisualStyleBackColor = false;
+            this.btnCrearCategoria.Click += new System.EventHandler(this.button3_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
+            // btnBuscarCaratula
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(291, 251);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 27);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Buscar Caratula";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBuscarCaratula.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnBuscarCaratula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCaratula.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscarCaratula.Location = new System.Drawing.Point(291, 251);
+            this.btnBuscarCaratula.Name = "btnBuscarCaratula";
+            this.btnBuscarCaratula.Size = new System.Drawing.Size(220, 27);
+            this.btnBuscarCaratula.TabIndex = 23;
+            this.btnBuscarCaratula.Text = "Buscar Caratula";
+            this.btnBuscarCaratula.UseVisualStyleBackColor = false;
+            this.btnBuscarCaratula.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(355, 309);
+            this.pictureBox1.Location = new System.Drawing.Point(354, 342);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(156, 183);
+            this.pictureBox1.Size = new System.Drawing.Size(135, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
@@ -310,50 +312,59 @@
             this.PrestableNo.UseVisualStyleBackColor = true;
             this.PrestableNo.CheckedChanged += new System.EventHandler(this.PrestableNo_CheckedChanged);
             // 
-            // dataAutores
+            // dgvAutores
             // 
-            this.dataAutores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataAutores.Location = new System.Drawing.Point(628, 162);
-            this.dataAutores.Name = "dataAutores";
-            this.dataAutores.Size = new System.Drawing.Size(240, 150);
-            this.dataAutores.TabIndex = 28;
+            this.dgvAutores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAutores.Location = new System.Drawing.Point(628, 162);
+            this.dgvAutores.Name = "dgvAutores";
+            this.dgvAutores.Size = new System.Drawing.Size(240, 150);
+            this.dgvAutores.TabIndex = 28;
             // 
-            // AnadirLibros
+            // txtCategoria
+            // 
+            this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoria.Location = new System.Drawing.Point(135, 311);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(116, 26);
+            this.txtCategoria.TabIndex = 29;
+            // 
+            // FmrAnadirLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 519);
-            this.Controls.Add(this.dataAutores);
+            this.Controls.Add(this.txtCategoria);
+            this.Controls.Add(this.dgvAutores);
             this.Controls.Add(this.PrestableNo);
             this.Controls.Add(this.PrestableSi);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.DataCategorias);
-            this.Controls.Add(this.BtnBuscarAutor);
-            this.Controls.Add(this.BtnAnadirAutor);
-            this.Controls.Add(this.TxtAutores);
+            this.Controls.Add(this.btnBuscarCaratula);
+            this.Controls.Add(this.btnCrearCategoria);
+            this.Controls.Add(this.dgvCategorias);
+            this.Controls.Add(this.btnBuscarAutor);
+            this.Controls.Add(this.btnAnadirAutor);
+            this.Controls.Add(this.txtAutores);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.BtnAñadirLibro);
+            this.Controls.Add(this.btnAñadirLibro);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.TxtUnidades);
+            this.Controls.Add(this.txtUnidades);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.TxtSinopsis);
+            this.Controls.Add(this.txtSinopsis);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.TxtEditorial);
+            this.Controls.Add(this.txtEditorial);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.TxtTitulo);
+            this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.TxtISBN);
+            this.Controls.Add(this.txtISBN);
             this.Controls.Add(this.label1);
-            this.Name = "AnadirLibros";
+            this.Name = "FmrAnadirLibros";
             this.Text = "AnadirLibros";
             this.Load += new System.EventHandler(this.AnadirLibros_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.DataCategorias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataAutores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAutores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,31 +372,32 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox TxtISBN;
+        private System.Windows.Forms.TextBox txtISBN;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TxtTitulo;
+        private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TxtEditorial;
+        private System.Windows.Forms.TextBox txtEditorial;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtSinopsis;
+        private System.Windows.Forms.TextBox txtSinopsis;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TxtUnidades;
+        private System.Windows.Forms.TextBox txtUnidades;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button BtnAñadirLibro;
-        private System.Windows.Forms.TextBox TxtAutores;
+        private System.Windows.Forms.Button btnAñadirLibro;
+        private System.Windows.Forms.TextBox txtAutores;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button BtnAnadirAutor;
-        private System.Windows.Forms.Button BtnBuscarAutor;
-        private System.Windows.Forms.DataGridView DataCategorias;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAnadirAutor;
+        private System.Windows.Forms.Button btnBuscarAutor;
+        private System.Windows.Forms.DataGridView dgvCategorias;
+        private System.Windows.Forms.Button btnCrearCategoria;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscarCaratula;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton PrestableSi;
         private System.Windows.Forms.RadioButton PrestableNo;
-        private System.Windows.Forms.DataGridView dataAutores;
+        private System.Windows.Forms.DataGridView dgvAutores;
+        private System.Windows.Forms.TextBox txtCategoria;
     }
 }
