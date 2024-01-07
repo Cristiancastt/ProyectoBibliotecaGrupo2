@@ -15,13 +15,13 @@ namespace BibliotecaProyectoAC
     public partial class FrmAnadirLibro : Form
     {
 
-        GestionBiblioteca controller = new GestionBiblioteca();
-
+       
+        
 
         public FrmAnadirLibro()
         {
             InitializeComponent();
-
+            
         }
         private void AnadirLibros_Load(object sender, EventArgs e)
         {
@@ -128,7 +128,7 @@ namespace BibliotecaProyectoAC
 
 
             string errores;
-            if (controller.AnadirLibro(isbn, titulo, editorial, sinopsis, caratulaSeleccionada, cantidad, prestable, autoresSeleccionados, categoriasSeleccionadas, out errores))
+            if (Program.controller.AnadirLibro(isbn, titulo, editorial, sinopsis, caratulaSeleccionada, cantidad, prestable, autoresSeleccionados, categoriasSeleccionadas, out errores))
             {
                 MessageBox.Show("El libro se ha añadido con éxito.");
             }
@@ -166,7 +166,14 @@ namespace BibliotecaProyectoAC
                 File.Copy(rutaCaratula, rutaGuardado);
 
                 // Mostrar la carátula en el PictureBox
-                pictureBox1.Image = Image.FromFile(rutaGuardado);
+                try {
+                    pictureBox1.Image = Image.FromFile(rutaGuardado);
+
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                
 
                 // Almacena la ruta de la carátula seleccionada en la variable "caratulaSeleccionada"
                 caratulaSeleccionada = rutaGuardado;
@@ -207,14 +214,14 @@ namespace BibliotecaProyectoAC
         private void ActualizarAutores_Click(object sender, EventArgs e)
         {
             string errores;
-            DataTable autoresTable = controller.ObtenerAutoresNombre(out errores);
+            DataTable autoresTable = Program.controller.ObtenerAutoresNombre(out errores);
             dgvAutores.DataSource = autoresTable;
         }
 
         private void ActualizarCategorias_Click(object sender, EventArgs e)
         {
             string errores;
-            DataTable categoriasTable = controller.ObtenerCategoriasNombre(out errores);
+            DataTable categoriasTable = Program.controller.ObtenerCategoriasNombre(out errores);
             dgvCategorias.DataSource = categoriasTable;
         }
 
@@ -222,7 +229,7 @@ namespace BibliotecaProyectoAC
         {
 
             String errores;
-            if (controller.AgregarCategoria(txtCategoria.Text, out errores))
+            if (Program.controller.AgregarCategoria(txtCategoria.Text, out errores))
             {
                 // Si la categoría se agrega con éxito
                 MessageBox.Show("El registro se ha realizado con éxito.");
@@ -241,7 +248,7 @@ namespace BibliotecaProyectoAC
         private void BtnAnadirAutor_Click(object sender, EventArgs e)
         {
             String errores;
-            if (controller.AgregarAutor(txtAutores.Text, out errores))
+            if (Program.controller.AgregarAutor(txtAutores.Text, out errores))
             {
                 // Si el autor se agrega con éxito
                 txtAutores.Clear();
@@ -259,7 +266,7 @@ namespace BibliotecaProyectoAC
         private void BtnBuscarAutor_Click(object sender, EventArgs e)
         {
             string errores;
-            DataTable autoresTable = controller.ObtenerAutorNombrePorTrozo( txtAutores.Text,out errores);
+            DataTable autoresTable = Program.controller.ObtenerAutorNombrePorTrozo( txtAutores.Text,out errores);
             dgvAutores.DataSource = autoresTable;
 
         }

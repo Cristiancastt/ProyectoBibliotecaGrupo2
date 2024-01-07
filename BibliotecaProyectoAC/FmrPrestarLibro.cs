@@ -13,7 +13,7 @@ namespace BibliotecaProyectoAC
 {
     public partial class FmrPrestarLibro : Form
     {
-        GestionBiblioteca controlador = new GestionBiblioteca();
+        
         public FmrPrestarLibro()
         {
             InitializeComponent();
@@ -28,15 +28,13 @@ namespace BibliotecaProyectoAC
             }
             string errores;
             DataUsuarios.DataSource = null;
-            DataUsuarios.DataSource = controlador.BuscarLectorCarnet(carnet, out errores);
-            if (string.IsNullOrEmpty(errores))
+            DataUsuarios.DataSource = Program.controller.BuscarLectorCarnet(carnet, out errores);
+            if (!string.IsNullOrEmpty(errores))
             {
 
-            }
-            else
-            {
                 MessageBox.Show("Error: " + errores);
             }
+           
 
 
         }
@@ -51,15 +49,12 @@ namespace BibliotecaProyectoAC
             }
             string errores;
             DataLibro.DataSource = null;
-            var libro = controlador.BuscarLibroPorISBN(isbn, out errores);
+            var libro = Program.controller.BuscarLibroPorISBN(isbn, out errores);
             DataLibro.DataSource = libro;
-            if (string.IsNullOrEmpty(errores))
-            {
-
-            }
-            else
+            if (!string.IsNullOrEmpty(errores))
             {
                 MessageBox.Show("Error: " + errores);
+
             }
 
         }
@@ -107,7 +102,7 @@ namespace BibliotecaProyectoAC
             }
 
             string errores;
-            if (controlador.Prestar(carnet, isbn, fechaPrestamo, fechaDevolucion, out errores))
+            if (Program.controller.Prestar(carnet, isbn, fechaPrestamo, fechaDevolucion, out errores))
             {
                 MessageBox.Show("El préstamo se ha realizado con éxito.");
             }

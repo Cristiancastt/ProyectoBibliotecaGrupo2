@@ -20,19 +20,17 @@ namespace BibliotecaProyectoAC
 
         private void ListaMorosos_Load(object sender, EventArgs e)
         {
-            GestionBiblioteca controlador = new GestionBiblioteca();
+
             //controlador.Morosos;
             string errores;
             DataMorosos.DataSource = null;
-            DataMorosos.DataSource = controlador.Morosos(out errores);
-            if (string.IsNullOrEmpty(errores))
-            {
-
-            }
-            else
+            DataMorosos.DataSource = Program.controller.Morosos(out errores);
+            if (!string.IsNullOrEmpty(errores))
             {
                 MessageBox.Show("Error: " + errores);
+
             }
+
         }
     }
 }

@@ -18,10 +18,10 @@ namespace CapaDatos
     public class GestionBiblioteca
     {
 
-        //todo Hacer todas las consultas
+
         const string cadConexion = "Data Source = .; Initial Catalog = bibliotecaG2; Integrated Security = SSPI; MultipleActiveResultSets=true";
 
-
+   
 
         public List<Lector> Morosos(out string errores)
         {

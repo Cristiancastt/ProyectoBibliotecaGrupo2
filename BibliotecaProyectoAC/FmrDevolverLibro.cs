@@ -14,7 +14,7 @@ namespace BibliotecaProyectoAC
 {
     public partial class FmrDevolverLibro : Form
     {
-        GestionBiblioteca controlador = new GestionBiblioteca();
+
         public FmrDevolverLibro()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace BibliotecaProyectoAC
                 DataGridViewRow selectedRow = DataLibros.SelectedRows[0];
                 // Puedes acceder a las celdas de la fila por índice o por nombre de columna
                 Libro libDevolver = new Libro(selectedRow.Cells["isbn"].Value.ToString());
-                bool devuelto = controlador.Devoluciones(libDevolver, out errores);
+                bool devuelto = Program.controller.Devoluciones(libDevolver, out errores);
                 if (devuelto)
                 {
                     MessageBox.Show("El libro se ha devuelto con exito");
@@ -44,7 +44,7 @@ namespace BibliotecaProyectoAC
         private void button1_Click(object sender, EventArgs e)
         {
             string error = "";
-            DataLibros.DataSource = controlador.ListPrestados(textBox1.Text, out error);
+            DataLibros.DataSource = Program.controller.ListPrestados(textBox1.Text, out error);
             if (string.IsNullOrEmpty(error))
             {
 

@@ -42,9 +42,9 @@ namespace BibliotecaProyectoAC
                 MessageBox.Show("El campo email no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            GestionBiblioteca controlador = new GestionBiblioteca();
+           
             string errores;
-            if (controlador.AltaUsuario(nombre, contra, num, email, out errores))
+            if (Program.controller.AltaUsuario(nombre, contra, num, email, out errores))
             {
                 MessageBox.Show("El registro se ha realizado con éxito.");
             }
