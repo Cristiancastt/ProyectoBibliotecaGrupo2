@@ -43,8 +43,7 @@ GO -- Agrega otro GO aquí
         sinopsis TEXT,
         caratula VARCHAR(255),
         cantidad_unidades INT NOT NULL,
-        prestable BIT NOT NULL,
-        biblioteca_id INT
+        prestable BIT NOT NULL
     );
 
 
