@@ -6,27 +6,27 @@ DELETE FROM libros_autores;
 DELETE FROM libros;
 DELETE FROM autores;
 DELETE FROM categorias;
-DELETE FROM biblioteca;
+-- DELETE FROM biblioteca;
 
 
-DBCC CHECKIDENT ('biblioteca', RESEED, 0);
+-- DBCC CHECKIDENT ('biblioteca', RESEED, 0);
 DBCC CHECKIDENT ('categorias', RESEED, 0);
 DBCC CHECKIDENT ('autores', RESEED, 0);
 DBCC CHECKIDENT ('lectores', RESEED, 0);
 DBCC CHECKIDENT ('prestamos', RESEED, 0);
 
 -- Inserts para biblioteca
-INSERT INTO biblioteca (nombre, lugar, imagen) VALUES
-('Biblioteca Nacional', 'Buenos Aires', 'imagen3.jpg'),
-('Biblioteca Nacional de España', 'Madrid', 'imagen4.jpg'),
-('Bibliothèque nationale de France', 'París', 'imagen5.jpg'),
-('Library of Congress', 'Washington, D.C.', 'imagen6.jpg'),
-('British Library', 'Londres', 'imagen7.jpg'),
-('New York Public Library', 'Nueva York', 'imagen8.jpg'),
-('National Library of China', 'Pekín', 'imagen9.jpg'),
-('Russian State Library', 'Moscú', 'imagen10.jpg'),
-('Library and Archives Canada', 'Ottawa', 'imagen11.jpg'),
-('National Library of Australia', 'Canberra', 'imagen12.jpg');
+-- INSERT INTO biblioteca (nombre, lugar, imagen) VALUES
+-- ('Biblioteca Nacional', 'Buenos Aires', 'imagen3.jpg'),
+-- ('Biblioteca Nacional de España', 'Madrid', 'imagen4.jpg'),
+-- ('Bibliothèque nationale de France', 'París', 'imagen5.jpg'),
+-- ('Library of Congress', 'Washington, D.C.', 'imagen6.jpg'),
+-- ('British Library', 'Londres', 'imagen7.jpg'),
+-- ('New York Public Library', 'Nueva York', 'imagen8.jpg'),
+-- ('National Library of China', 'Pekín', 'imagen9.jpg'),
+-- ('Russian State Library', 'Moscú', 'imagen10.jpg'),
+-- ('Library and Archives Canada', 'Ottawa', 'imagen11.jpg'),
+-- ('National Library of Australia', 'Canberra', 'imagen12.jpg');
 
 -- Inserts para categorias
 INSERT INTO categorias (descripcion) VALUES
@@ -67,31 +67,7 @@ INSERT INTO libros (isbn, titulo, editorial, sinopsis, caratula, cantidad_unidad
 ('9', 'La riqueza de las naciones', 'Fondo de Cultura Económica', 'Obra clásica de Adam Smith sobre economía y libre mercado.', 'riquezanasiones.jpg', 28, 1),
 ('10', 'Veinte mil leguas de viaje submarino', 'Alianza Editorial', 'Aventuras submarinas escritas por el autor francés Jules Verne.', 'veintemilleguas.jpg', 12, 1);
 
--- Inserts para libros_categorias
-INSERT INTO libros_categorias (isbn, categoria_id) VALUES
-('1', 1), -- Asocia "Cien años de soledad" a la categoría "Novela"
-('2', 1), -- Asocia "Orgullo y prejuicio" a la categoría "Novela"
-('3', 3), -- Asocia "Una breve historia del tiempo" a la categoría "Ciencia"
-('4', 6), -- Asocia "El código Leicester" a la categoría "Arte"
-('5', 5), -- Asocia "Poemas completos de Emily Dickinson" a la categoría "Poesía"
-('6', 6), -- Asocia "Picasso: Blue and Rose Periods" a la categoría "Arte"
-('7', 7), -- Asocia "The Road Ahead" a la categoría "Tecnología"
-('8', 8), -- Asocia "Introducción al psicoanálisis" a la categoría "Filosofía"
-('9', 9), -- Asocia "La riqueza de las naciones" a la categoría "Economía"
-('10', 10); -- Asocia "Veinte mil leguas de viaje submarino" a la categoría "Aventura"
 
--- Inserts para libros_autores
-INSERT INTO libros_autores (isbn, autor_id) VALUES
-('1', 1), -- Asocia "Cien años de soledad" con Gabriel García Márquez
-('2', 2), -- Asocia "Orgullo y prejuicio" con Jane Austen
-('3', 3), -- Asocia "Una breve historia del tiempo" con Albert Einstein
-('4', 4), -- Asocia "El código Leicester" con Leonardo da Vinci
-('5', 5), -- Asocia "Poemas completos de Emily Dickinson" con Emily Dickinson
-('6', 6), -- Asocia "Picasso: Blue and Rose Periods" con Pablo Picasso
-('7', 7), -- Asocia "The Road Ahead" con Bill Gates
-('8', 8), -- Asocia "Introducción al psicoanálisis" con Sigmund Freud
-('9', 9), -- Asocia "La riqueza de las naciones" con Adam Smith
-('10', 10); -- Asocia "Veinte mil leguas de viaje submarino" con Jules Verne
 
 -- Inserts adicionales para lectores
 INSERT INTO lectores (nombre, contraseña, telefono, email) VALUES
@@ -106,13 +82,39 @@ INSERT INTO lectores (nombre, contraseña, telefono, email) VALUES
 ('Carmen Torres', 'carmenclave', '555-222-1111', 'carmen@example.com'),
 ('Diego Ramos', 'diegopass', '555-666-3333', 'diego@example.com');
 
--- Inserts adicionales para prestamos
+
+-- Inserts para libros_categorias
+INSERT INTO libros_categorias (isbn, categoria_id) VALUES
+('1', 0), -- Asocia "Cien años de soledad" a la categoría "Novela"
+('2', 0), -- Asocia "Orgullo y prejuicio" a la categoría "Novela"
+('3', 2), -- Asocia "Una breve historia del tiempo" a la categoría "Ciencia"
+('4', 5), -- Asocia "El código Leicester" a la categoría "Arte"
+('5', 4), -- Asocia "Poemas completos de Emily Dickinson" a la categoría "Poesía"
+('6', 5), -- Asocia "Picasso: Blue and Rose Periods" a la categoría "Arte"
+('7', 6), -- Asocia "The Road Ahead" a la categoría "Tecnología"
+('8', 7), -- Asocia "Introducción al psicoanálisis" a la categoría "Filosofía"
+('9', 8), -- Asocia "La riqueza de las naciones" a la categoría "Economía"
+('10', 9); -- Asocia "Veinte mil leguas de viaje submarino" a la categoría "Aventura"
+
+-- Inserts para libros_autores
+INSERT INTO libros_autores (isbn, autor_id) VALUES
+('1', 0), -- Asocia "Cien años de soledad" con Gabriel García Márquez
+('2', 1), -- Asocia "Orgullo y prejuicio" con Jane Austen
+('3', 2), -- Asocia "Una breve historia del tiempo" con Albert Einstein
+('4', 3), -- Asocia "El código Leicester" con Leonardo da Vinci
+('5', 4), -- Asocia "Poemas completos de Emily Dickinson" con Emily Dickinson
+('6', 5), -- Asocia "Picasso: Blue and Rose Periods" con Pablo Picasso
+('7', 6), -- Asocia "The Road Ahead" con Bill Gates
+('8', 7), -- Asocia "Introducción al psicoanálisis" con Sigmund Freud
+('9', 8), -- Asocia "La riqueza de las naciones" con Adam Smith
+('10', 9); -- Asocia "Veinte mil leguas de viaje submarino" con Jules Verne
+
 INSERT INTO prestamos (carnet, isbn, fecha_prestamo, fecha_devolucion) VALUES
-(2, '1', '2023-10-22', '2023-11-15'),
-(4, '2', '2023-10-25', '2023-11-18'),
-(6, '3', '2023-10-28', '2023-11-21'),
-(8, '4', '2023-11-01', '2023-11-24'),
-(10, '5', '2023-11-04', '2023-11-27');
+(1, '1', '2023-10-22', '2023-11-15'),
+(3, '2', '2023-10-25', '2023-11-18'),
+(5, '3', '2023-10-28', '2023-11-21'),
+(7, '4', '2023-11-01', '2023-11-24'),
+(9, '5', '2023-11-04', '2023-11-27');
 
 
 

@@ -1,4 +1,4 @@
-USE master;
+	USE master;
 
 -- Intenta eliminar la base de datos si existe
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'bibliotecaG2')
@@ -16,12 +16,12 @@ GO -- Agrega otro GO aquí
 USE bibliotecaG2;
 GO -- Agrega otro GO aquí
 
-    CREATE TABLE biblioteca (
-        biblioteca_id INT IDENTITY(1,1) PRIMARY KEY,
-        nombre VARCHAR(255) NOT NULL,
-        lugar VARCHAR(255),
-        imagen VARCHAR(255)
-    );
+    -- CREATE TABLE biblioteca (
+    --     biblioteca_id INT IDENTITY(1,1) PRIMARY KEY,
+    --     nombre VARCHAR(255) NOT NULL,
+    --     lugar VARCHAR(255),
+    --     imagen VARCHAR(255)
+    -- );
 
 
     CREATE TABLE categorias (
@@ -44,7 +44,7 @@ GO -- Agrega otro GO aquí
         caratula VARCHAR(255),
         cantidad_unidades INT NOT NULL,
         prestable BIT NOT NULL,
-        biblioteca_id INT,
+        biblioteca_id INT
     );
 
 
